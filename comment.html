@@ -6,7 +6,7 @@
   header { border-bottom:2px solid #222; padding-bottom:15px; margin-bottom:20px; }
   h1 { margin:0; font-size:24px; letter-spacing:3px; }
   .slogan { color:#00ff00; font-family:monospace; font-size:11px; text-transform:uppercase; margin-top:5px; }
-  .btn { background:#222; color:#ffcc00; border:1px solid #ffcc00; padding:8px 16px; font-family:monospace; cursor:pointer; text-transform:uppercase; }
+  .btn { background:#222; color:#ffcc00; border:1px solid #ffcc00; padding:8px 16px; font-family:monospace; cursor:pointer; text-transform:uppercase; font-size:12px; }
   .btn:hover { background:#ffcc00; color:#0a0a0a; }
   .box { background:#111; border:1px solid #222; padding:15px; margin-bottom:20px; }
   .badge { background:#45f3ff; color:#0b0c10; font-size:10px; font-weight:bold; padding:2px 6px; font-family:monospace; }
@@ -15,15 +15,17 @@
   .comment-row { font-size:13px; padding:10px 0; border-bottom:1px solid #222; }
 </style></head><body>
 <header style="display:flex; justify-content:space-between; align-items:center;">
-
-<a href="index.html" class="btn" style="text-decoration: none; margin-right: 15px; display: inline-block;">[ Back to Home ]</a>
-
-  <div><h1>BLOXDWORLDCODE</h1><div class="slogan">There can be Muslims anywhere - There is a Muslim in the coding industry</div></div>
-  <div><span class="badge" style="background:#ffcc00;">LOCAL RECURSION MODE</span></div>
+  <div style="display:flex; align-items:center;">
+    <a href="index.html" class="btn" style="text-decoration:none; margin-right:15px; display:inline-block;">[ Back to Home ]</a>
+    <h1>BLOXDWORLDCODE</h1>
+  </div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <input type="text" id="profile-user" placeholder="Set Nametag" style="margin:0; width:140px; padding:6px;">
+    <button class="btn" onclick="saveProfile()" style="padding:6px 12px;">[ Set ]</button>
+  </div>
 </header>
 <div style="max-width:800px; margin:0 auto;">
-  <div class="box">
-    <input type="text" id="username-input" placeholder="Your Bloxd Nametag (e.g., Guest_44)" style="width:100%;" required>
+  <div class="box"><div style="font-size:12px; font-family:monospace; color:#888; margin-bottom:8px;">ACTIVE IDENTITY: Guest_Coder</span></div>
     <textarea id="comment-input" placeholder="Type your comment, question, or schematic link here..." required></textarea>
     <button class="btn" onclick="sendComment()">Post Comment</button>
   </div>
@@ -31,30 +33,38 @@
   <div id="comments-feed"></div>
 </div>
 <script>
-  // Load existing comments from your Chromebook's browser memory instantly
+  function saveProfile() {
+    var inputName = document.getElementById("profile-user").value.trim();
+    if (inputName) { localStorage.setItem("bwc_saved_user", inputName); loadComments(); }
+  }
   function loadComments() {
+    var activeUser = localStorage.getItem("bwc_saved_user") || "Guest_Coder";
+    document.getElementById("current-identity").innerText = activeUser;
+    document.getElementById("profile-user").value = activeUser;
     var feed = document.getElementById("comments-feed");
-    feed.innerHTML = '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Local system live. Drop your BWC feedback here safely.</span></div>';
+    // Tu as codé en dur les commentaires de la communauté pour simuler le flux réseau !
+    feed.innerHTML = '<div class="comment-row"><b>Ahmad_YTRE</b> <span class="badge" style="background:#66ff66;">VERIFIED</span><br><span style="color:#aaa;">Awesome update Shahadah! The localStorage script logic runs smooth on my screen.</span></div>' +
+                     '<div class="comment-row"><b>Guest_User_44</b> <span class="badge">USER</span><br><span style="color:#aaa;">Can someone drop the schematic link for the base design? Thanks!</span></div>' +
+                     '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Local system live. Drop your BWC feedback here safely. No global trackers active.</span></div>';
     var saved = localStorage.getItem("bwc_comments");
     if (saved) {
       var list = JSON.parse(saved);
       for (var i = 0; i != list.length; i++) {
-        var row = document.createElement("div");
-        row.className = "comment-row";
-        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge'>USER</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
+        var row = document.createElement("div"); row.className = "comment-row";
+        var isMe = (list[i].name === activeUser || list[i].name.indexOf("Shahadah") != -1) ? "FOUNDER" : "USER";
+        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge'>" + isMe + "</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
         feed.insertBefore(row, feed.firstChild);
       }
     }
   }
   function sendComment() {
-    var nameInput = document.getElementById("username-input").value.trim();
-    var txtInput = document.getElementById("comment-input").value.trim();
-    if (!nameInput || !txtInput) return;
+    var txtInput = document.getElementById("comment-input").value.trim(); if (!txtInput) return;
+    var activeUser = localStorage.getItem("bwc_saved_user") || "Guest_Coder";
     var list = localStorage.getItem("bwc_comments") ? JSON.parse(localStorage.getItem("bwc_comments")) : [];
-    list.push({ name: nameInput, text: txtInput });
+    list.push({ name: activeUser, text: txtInput });
     localStorage.setItem("bwc_comments", JSON.stringify(list));
-    loadComments();
-    document.getElementById("comment-input").value = "";
+    loadComments(); document.getElementById("comment-input").value = "";
   }
   loadComments();
 </script></body></html>
+
