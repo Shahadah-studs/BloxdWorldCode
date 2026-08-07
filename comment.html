@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>BloxdWorldCode - Live AI Chat</title>
+<title>BWC - Intelligence Matrix</title>
 <link rel="icon" type="image/png" href="/favicon.png?v=final">
 <style>
   body { background:#0a0a0a; color:#fff; font-family:sans-serif; padding:15px; margin:0; }
@@ -17,13 +17,13 @@
 <header>
   <div style="display:flex; align-items:center;"><a href="index.html" class="btn" style="text-decoration:none; margin-right:15px;">[ Back ]</a>
   <div><h1>BLOXDWORLDCODE</h1><div class="slogan">There can be Muslims anywhere - There is a Muslim in the coding industry</div></div></div>
-  <div><span class="badge" id="ai-status" style="background:#ffcc00;">REAL AI LIVE</span></div>
+  <div><span class="badge" id="ai-status" style="background:#00ff00;">SHS HUMAN CORE AI</span></div>
 </header>
 <div style="max-width:800px; margin:0 auto;">
   <div class="box">
-    <input type="text" id="username-input" placeholder="Your Bloxd Nametag (e.g., Guest_44)" style="width:100%;" required>
-    <textarea id="comment-input" placeholder="Ask the real ChatGPT-style AI anything (code, math, schematics...)" required></textarea>
-    <button class="btn" id="send-btn" onclick="sendComment()">Post Comment & Ask AI</button>
+    <input type="text" id="username-input" placeholder="Your Bloxd Nametag" style="width:100%;" required>
+    <textarea id="comment-input" placeholder="Ask AI anything or talk about the hackathon, codes, minecraft..." required></textarea>
+    <button class="btn" onclick="sendComment()">Post Comment & Ask AI</button>
   </div>
   <h3 style="font-size:12px; letter-spacing:2px; color:#666; text-transform:uppercase; border-bottom:1px solid #222; padding-bottom:5px;">// Live Public Stream & ChatGPT-Style AI</h3>
   <div id="comments-feed"></div>
@@ -31,14 +31,14 @@
 <script>
   function loadComments() {
     var feed = document.getElementById("comments-feed");
-    feed.innerHTML = '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Ecosystem update: Connected a real live generative open AI LLM model. Test its intelligence now!</span></div>';
+    feed.innerHTML = '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Ecosystem update: Self-contained Smart Word-Bank AI online. Test its human dialogue logic!</span></div>';
     var saved = localStorage.getItem("bwc_comments");
     if (saved) {
       var list = JSON.parse(saved);
       for (var i = 0; i != list.length; i++) {
         var row = document.createElement("div"); row.className = "comment-row";
         var b = (list[i].name === "SHS_ChatGPT_Bot") ? "background:#ff3333;color:#fff" : "background:#45f3ff;color:#0b0c10";
-        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge' style='" + b + "'>" + (list[i].name === "SHS_ChatGPT_Bot" ? "LIVE AI SYSTEM" : "USER") + "</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
+        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge' style='" + b + "'>" + (list[i].name === "SHS_ChatGPT_Bot" ? "LIVE AI" : "USER") + "</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
         feed.insertBefore(row, feed.firstChild);
       }
     }
@@ -47,26 +47,29 @@
     var name = document.getElementById("username-input").value.trim(), txt = document.getElementById("comment-input").value.trim();
     if (!name || !txt) return;
     var list = localStorage.getItem("bwc_comments") ? JSON.parse(localStorage.getItem("bwc_comments")) : [];
-    list.push({ name: name, text: txt }); localStorage.setItem("bwc_comments", JSON.stringify(list)); loadComments();
-    document.getElementById("comment-input").value = ""; document.getElementById("ai-status").innerText = "AI THINKING...";
+    list.push({ name: name, text: txt });
     
-    // Remastered: Adding explicit context rules inside a URL-safe text stream query link
-    var customContext = "You are SHS ChatGPT Bot, an elite coding AI assistant inside BloxdWorldCode created by Shahadah Studios Elite. Talk like an intelligent human. Answer this prompt: ";
-    var cleanPrompt = encodeURIComponent(customContext + txt);
+    // THE WORD BANK MATRIX: Dictionnaire d'apprentissage humain local
+    var words = txt.toLowerCase().replace(/[^\w\s]/g, "").split(" ");
+    var ans = "That is an amazing point! Tell me more about what you are engineering on your Chromebook. Let's push software limits together.";
     
-    // Embedded script data-link injector to completely break through Khan Academy sandbox blocks
-    var script = document.createElement("script");
-    window.pollinationsCallback = function(data) {
-      list.push({ name: "SHS_ChatGPT_Bot", text: data.choices[0].text.trim() });
-      localStorage.setItem("bwc_comments", JSON.stringify(list));
-      document.getElementById("ai-status").innerText = "REAL AI LIVE"; loadComments();
-    };
-    script.src = "https://pollinations.ai" + cleanPrompt + "?json=true&callback=pollinationsCallback";
-    document.body.appendChild(script);
+    var matches = function(arr) { return words.some(function(w) { return arr.indexOf(w) !== -1; }); };
     
-    // 3-second safety time execution anchor
-    setTimeout(function() { if(document.getElementById("ai-status").innerText === "AI THINKING...") { document.getElementById("ai-status").innerText = "REAL AI LIVE"; } }, 3500);
+    if (matches(["hackathon", "arena", "competition", "tournament", "september"])) {
+      ans = "The Summer Hackathon is pure hype! EmberTrail Studios just dropped an absolute masterpiece with their generator and Voltan version 1.1.14. Remember to mention Ahmad on Bloxdify to get verified!";
+    } else if (matches(["minecraft", "voltan", "voxel", "warden", "evoker", "eaglercraft"])) {
+      ans = "Voltan running on Netlify is absolute fire! Backporting Wardens and Evokers onto a 1.1.14 voxel engine using a custom Eaglercraft fork proves that independent Muslim developers are top-tier architectures.";
+    } else if (matches(["code", "html", "javascript", "vercel", "netlify", "wasmer", "generator"])) {
+      ans = "Clean client-side coding is the ultimate flex. Keeping scripts unminified and under 70 lines ensures zero lag and matches our honest software manifesto perfectly. Expensive rigs can't beat pure logic.";
+    } else if (matches(["hello", "hi", "hey", "assalamualikum", "peace"])) {
+      ans = "Assalamualikum! Peace be upon you. I am the SHS ChatGPT Core Bot. I am monitoring the database and tracking your cloud parameters. What project are we reviewing today?";
+    } else if (matches(["history", "founder", "b1oxdg4mer", "ahmad", "studios"])) {
+      ans = "Shahadah Studios Elite has a legendary lore! Founded in 2025 under the original solo tag B1oxdg4mer_, we ranked up to solo veteran status. We are one of only two independent verified creators on the platform.";
+    }
+    
+    list.push({ name: "SHS_ChatGPT_Bot", text: "🤖 " + ans });
+    localStorage.setItem("bwc_comments", JSON.stringify(list));
+    document.getElementById("comment-input").value = ""; loadComments();
   }
   loadComments();
 </script></body></html>
-
