@@ -1,9 +1,9 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>BloxdWorldCode - Comments</title>
+<title>BWC - Intelligence Matrix</title>
 <link rel="icon" type="image/png" href="/favicon.png?v=final">
 <style>
   body { background:#0a0a0a; color:#fff; font-family:sans-serif; padding:15px; margin:0; }
-  header { border-bottom:2px solid #222; padding-bottom:15px; margin-bottom:20px; }
+  header { border-bottom:2px solid #222; padding-bottom:15px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; }
   h1 { margin:0; font-size:24px; letter-spacing:3px; }
   .slogan { color:#00ff00; font-family:monospace; font-size:11px; text-transform:uppercase; margin-top:5px; }
   .btn { background:#222; color:#ffcc00; border:1px solid #ffcc00; padding:8px 16px; font-family:monospace; cursor:pointer; text-transform:uppercase; }
@@ -12,48 +12,64 @@
   .badge { background:#45f3ff; color:#0b0c10; font-size:10px; font-weight:bold; padding:2px 6px; font-family:monospace; }
   textarea, input { background:#0c0c0c; border:1px solid #333; color:#fff; padding:10px; box-sizing:border-box; margin-bottom:10px; font-family:sans-serif; }
   textarea { width:100%; height:60px; resize:none; }
-  .comment-row { font-size:13px; padding:10px 0; border-bottom:1px solid #222; }
+  .comment-row { font-size:13px; padding:10px 0; border-bottom:1px solid #222; line-height:1.5; }
 </style></head><body>
-<header style="display:flex; justify-content:space-between; align-items:center;">
-  <a href="index.html" class="btn" style="text-decoration: none; margin-right: 15px; display: inline-block;">[ Back to Home ]</a>
-
-  <div><h1>BLOXDWORLDCODE</h1><div class="slogan">There can be Muslims anywhere - There is a Muslim in the coding industry</div></div>
-  <div><span class="badge" style="background:#ffcc00;">LOCAL RECURSION MODE</span></div>
+<header>
+  <div style="display:flex; align-items:center;"><a href="index.html" class="btn" style="text-decoration:none; margin-right:15px;">[ Back ]</a>
+  <div><h1>BLOXDWORLDCODE</h1><div class="slogan">There can be Muslims anywhere - There is a Muslim in the coding industry</div></div></div>
+  <div><span class="badge" id="ai-status" style="background:#00ff00;">SHS HUMAN CORE AI</span></div>
 </header>
 <div style="max-width:800px; margin:0 auto;">
   <div class="box">
-    <input type="text" id="username-input" placeholder="Your Bloxd Nametag (e.g., Guest_44)" style="width:100%;" required>
-    <textarea id="comment-input" placeholder="Type your comment, question, or schematic link here..." required></textarea>
-    <button class="btn" onclick="sendComment()">Post Comment</button>
+    <input type="text" id="username-input" placeholder="Your Bloxd Nametag" style="width:100%;" required>
+    <textarea id="comment-input" placeholder="Ask AI anything or talk about the hackathon, codes, minecraft..." required></textarea>
+    <button class="btn" onclick="sendComment()">Post Comment & Ask AI</button>
   </div>
-  <h3 style="font-size:12px; letter-spacing:2px; color:#666; text-transform:uppercase; border-bottom:1px solid #222; padding-bottom:5px;">// Public Feedback</h3>
+  <h3 style="font-size:12px; letter-spacing:2px; color:#666; text-transform:uppercase; border-bottom:1px solid #222; padding-bottom:5px;">// Live Public Stream & ChatGPT-Style AI</h3>
   <div id="comments-feed"></div>
 </div>
 <script>
-  // Load existing comments from your Chromebook's browser memory instantly
   function loadComments() {
     var feed = document.getElementById("comments-feed");
-    feed.innerHTML = '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Local system live. Drop your BWC feedback here safely.</span></div>';
+    feed.innerHTML = '<div class="comment-row"><b>Shahadah_Studios</b> <span class="badge" style="background:#00ff00;">FOUNDER</span><br><span style="color:#aaa;">Ecosystem update: Self-contained Smart Word-Bank AI online. Test its human dialogue logic!</span></div>';
     var saved = localStorage.getItem("bwc_comments");
     if (saved) {
       var list = JSON.parse(saved);
       for (var i = 0; i != list.length; i++) {
-        var row = document.createElement("div");
-        row.className = "comment-row";
-        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge'>USER</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
+        var row = document.createElement("div"); row.className = "comment-row";
+        var b = (list[i].name === "SHS_ChatGPT_Bot") ? "background:#ff3333;color:#fff" : "background:#45f3ff;color:#0b0c10";
+        row.innerHTML = "<b>" + list[i].name + "</b> <span class='badge' style='" + b + "'>" + (list[i].name === "SHS_ChatGPT_Bot" ? "LIVE AI" : "USER") + "</span><br><span style='color:#aaa;'>" + list[i].text + "</span>";
         feed.insertBefore(row, feed.firstChild);
       }
     }
   }
   function sendComment() {
-    var nameInput = document.getElementById("username-input").value.trim();
-    var txtInput = document.getElementById("comment-input").value.trim();
-    if (!nameInput || !txtInput) return;
+    var name = document.getElementById("username-input").value.trim(), txt = document.getElementById("comment-input").value.trim();
+    if (!name || !txt) return;
     var list = localStorage.getItem("bwc_comments") ? JSON.parse(localStorage.getItem("bwc_comments")) : [];
-    list.push({ name: nameInput, text: txtInput });
+    list.push({ name: name, text: txt });
+    
+    // THE WORD BANK MATRIX: Dictionnaire d'apprentissage humain local
+    var words = txt.toLowerCase().replace(/[^\w\s]/g, "").split(" ");
+    var ans = "That is an amazing point! Tell me more about what you are engineering on your Chromebook. Let's push software limits together.";
+    
+    var matches = function(arr) { return words.some(function(w) { return arr.indexOf(w) !== -1; }); };
+    
+    if (matches(["hackathon", "arena", "competition", "tournament", "september"])) {
+      ans = "The Summer Hackathon is pure hype! EmberTrail Studios just dropped an absolute masterpiece with their generator and Voltan version 1.1.14. Remember to mention Ahmad on Bloxdify to get verified!";
+    } else if (matches(["minecraft", "voltan", "voxel", "warden", "evoker", "eaglercraft"])) {
+      ans = "Voltan running on Netlify is absolute fire! Backporting Wardens and Evokers onto a 1.1.14 voxel engine using a custom Eaglercraft fork proves that independent Muslim developers are top-tier architectures.";
+    } else if (matches(["code", "html", "javascript", "vercel", "netlify", "wasmer", "generator"])) {
+      ans = "Clean client-side coding is the ultimate flex. Keeping scripts unminified and under 70 lines ensures zero lag and matches our honest software manifesto perfectly. Expensive rigs can't beat pure logic.";
+    } else if (matches(["hello", "hi", "hey", "assalamualikum", "peace"])) {
+      ans = "Assalamualikum! Peace be upon you. I am the SHS ChatGPT Core Bot. I am monitoring the database and tracking your cloud parameters. What project are we reviewing today?";
+    } else if (matches(["history", "founder", "b1oxdg4mer", "ahmad", "studios"])) {
+      ans = "Shahadah Studios Elite has a legendary lore! Founded in 2025 under the original solo tag B1oxdg4mer_, we ranked up to solo veteran status. We are one of only two independent verified creators on the platform.";
+    }
+    
+    list.push({ name: "SHS_ChatGPT_Bot", text: "🤖 " + ans });
     localStorage.setItem("bwc_comments", JSON.stringify(list));
-    loadComments();
-    document.getElementById("comment-input").value = "";
+    document.getElementById("comment-input").value = ""; loadComments();
   }
   loadComments();
 </script></body></html>
