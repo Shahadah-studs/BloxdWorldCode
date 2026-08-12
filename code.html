@@ -14,14 +14,17 @@
         border:solid; color:rgb(29, 94, 224); background-color:rgb(0, 238, 255);
     }
 h2{
-    font-size:20px; font-family:sans; color:rgb(27, 166, 159);
+    font-size:20px; font-family:sans; color:rgb(0, 170, 255);
 
     text-align:center;
 }   
 
-    ol{color:rgb(51, 125, 14); font-family:mono;}
+    ol{color:rgb(0, 255, 94); font-family:Mono;}
      li{color:rgb(53, 252, 86); font-family:mono;}
-body{background-color:rgb(0, 0, 0);}
+body{ background-image:
+radial-gradient(circle,black,blue,red);
+    
+}
     
 </style>
 <a href="index.html">Back to Homepage</a>
@@ -32,6 +35,10 @@ body{background-color:rgb(0, 0, 0);}
 <li>onPlayerJoin(player): Triggers immediately when a user enters the lobby.<li>onPlayerLeave(player): Tracks when a player disconnects or quits.<li>onPlayerChat(player, message): Monitors text chat; crucial for setting up custom command prefixes (like !spawn or !tp).<li>onPlayerChangeBlock(player, blockX, blockY, blockZ, oldBlock, newBlock): Triggers when a player places or breaks a block.<li>onRespawnRequest(player): Intercepts the moment a player dies or requests a reset.<li>tick(): Runs continuously on every single server frame. Used for timers, zones, and real-time game loops.
   
    </ul> 
-<ol>Player Manipulation Commands - coming soon!</ol>
+<ol>Player Manipulation Commands/Codes - Tested</ol>
+   <ul>
+       <li>player.setPosition(x, y, z): Instantly teleports a player to designated coordinates.<li>player.getVelocity()/player.setVelocity(x, y, z) : Controls player speed, launch pads, and knockback effects.<li>player.sendMessage("text"): Sends a private system notification directly to that player's chat feed.<li>player.getInventory(): Checks what items or blocks the player is holding.
+   </ul>
+  <ol> World & Block Manipulation - Coming Soon!</ol>     
    </body>
 </html>
