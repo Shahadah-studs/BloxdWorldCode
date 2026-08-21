@@ -17,12 +17,13 @@ h2{
     font-size:20px; font-family:sans; color:rgb(0, 170, 255);
 
     text-align:center;
+ background-image:linear-gradient( black,blue);  
 }   
 
-    ol{color:rgb(0, 255, 94); font-family:Mono;}
+    ol{color:rgb(0, 255, 94); font-family:Mono; font-size:27px;}
      li{color:rgb(53, 252, 86); font-family:mono;}
 body{ background-image:
-radial-gradient(ellipse,black,blue,red);
+conic-gradient( black,red,blue);
     
 }
     
@@ -40,6 +41,16 @@ radial-gradient(ellipse,black,blue,red);
    <ul>
        <li>player.setPosition(x, y, z): Instantly teleports a player to designated coordinates.<li>player.getVelocity()/player.setVelocity(x, y, z) : Controls player speed, launch pads, and knockback effects.<li>player.sendMessage("text"): Sends a private system notification directly to that player's chat feed.<li>player.getInventory(): Checks what items or blocks the player is holding.
    </ul>
-  <ol> World & Block Manipulation - Coming Soon!</ol>     
+  <ol> World & Block Manipulation</ol>     
+<ul style="font-size:21px; font-family:sans; color:rgb(0, 186, 109);">Modifying Blocks (Active Manipulation)</ul>
+<ul style="color:rgb(0, 213, 255)"> <li>api.changeBlock(x, y, z, "blockType")</li> <br> What it does: Instantly replaces a block at specific coordinates with a new block type.<br>Usage: Changing an active block to a different material or spawning structures.
+    <br><br><li>api.setBlock(x, y, z, "blockType")</li>
+<br>
+What it does: Forces a single block grid coordinate to become a specific item ID.<br>Usage: Identical to changeBlock, used interchangeably depending on server API variations.
+    <br><br><li>api.removeBlock(x, y, z)</li>
+<br> What it does: Deletes the block at the specified coordinates, leaving empty space.<br>Usage: Clearing paths, resetting maps, or destroying structures.
+    
+</ul>
+
    </body>
 </html>
