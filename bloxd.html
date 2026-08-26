@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Client Console // Shahadah Studios Elite</title>
+    <title>Bloxd.io Client Console // Shahadah Studios Elite</title>
     <style>
         /* ==================================================================
-           👑 SHAHADAH STUDIOS ELITE // OFFICIAL PREMIUM GOLD THEME (SOLAR STYLE)
+           👑 SHAHADAH STUDIOS ELITE // IMMERSIVE FULL SCREEN CLIENT (SOLAR)
            ================================================================== */
         :root {
             --bg-metallic: #08080b;
             --surface-panel: #0f0f14;
             --gold-primary: #d4af37;
-            --gold-glow: rgba(212, 175, 55, 0.15);
             --text-main: #ffffff;
-            --text-muted: #8e8e9f;
-            --neon-green: #23bf73;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        body {
-            background-color: var(--bg-metallic);
-            color: var(--text-main);
-            font-family: 'Courier New', monospace;
+        html, body {
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-metallic);
+            font-family: 'Courier New', monospace;
+            overflow: hidden; /* Supprime les barres de défilement pour un effet application pur */
         }
 
-        /* MASTER BACK NAVIGATION CONTROL LINK */
-        .navigation-row {
+        /* BANDEAU DE CONTRÔLE SUPÉRIEUR DISCRET (SOLAR INTERFACE) */
+        .client-header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 1100px;
-            margin-bottom: 20px;
+            height: 40px;
+            background-color: var(--surface-panel);
+            border-bottom: 2px solid var(--gold-primary);
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 999999; /* Toujours visible au-dessus du jeu */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .back-link {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--gold-primary);
             text-decoration: none;
             border: 1px solid var(--gold-primary);
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
@@ -62,136 +64,60 @@
             color: var(--bg-metallic);
         }
 
-        /* 1:1 IMMERSIVE GAME FRAMING PANEL CONTAINER */
-        .game-container {
-            width: 100%;
-            max-width: 1100px;
-            background-color: var(--surface-panel);
-            border: 2px solid var(--gold-primary);
-            border-radius: 8px;
-            box-shadow: 0 0 25px var(--gold-glow);
-            padding: 16px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        /* SOLAR-STYLE PREMIUM HEADER STRIP */
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
-            padding-bottom: 12px;
-            margin-bottom: 16px;
-        }
-
-        .game-title {
+        .client-status {
             color: var(--gold-primary);
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .game-title::before {
-            content: "";
-            display: inline-block;
-            width: 4px;
-            height: 14px;
-            background-color: var(--gold-primary);
-        }
-
-        .status-badge {
-            font-size: 11px;
-            color: var(--neon-green);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid var(--neon-green);
-            padding: 4px 10px;
-            border-radius: 4px;
-            background-color: rgba(35, 191, 115, 0.05);
-        }
-
-        /* PERFECT RESPONSIVE 16:9 SCREEN RATIO GRID BOX */
-        .iframe-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* Perfect 16:9 Aspect Ratio Rule */
-            border-radius: 4px;
-            overflow: hidden;
-            background-color: #000000;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-        }
-
-        .iframe-wrapper iframe {
+        /* CADRE CANVAS PLEIN ÉCRAN POUR BLOXD.IO */
+        .game-viewport {
             position: absolute;
-            top: 0;
+            top: 40px; /* Aligné juste sous le bandeau de contrôle */
             left: 0;
+            width: 100%;
+            height: calc(100% - 40px); /* Occupe 100% de l'espace restant */
+            background-color: #000000;
+        }
+
+        .game-viewport iframe {
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        /* TECHNICAL SUB-DETAILS AREA */
-        .division-details {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 14px;
-            line-height: 1.4;
-            letter-spacing: 0.5px;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- Back Control Navigation Link to Main Hub Module -->
-    <div class="navigation-row">
-        <a href="index.html" class="back-link">&lt; Return to Hub</a>
+    <!-- Bandeau de Contrôle Supérieur Tactique -->
+    <div class="client-header">
+        <a href="index.html" class="back-link">&lt; Hub Hub</a>
+        <div class="client-status">> SHS ELITE COMPILER // LIVE MATRIX</div>
     </div>
 
-    <!-- Immersive Client Viewport Container Box -->
-    <div class="game-container">
-        
-        <!-- Premium Solar Layout Header Configuration -->
-        <div class="game-header">
-            <div class="game-title">> Embedded Core: Bloxd.io Matrix</div>
-            <div class="status-badge">Secure Node</div>
-        </div>
-
-        <!-- 16:9 Widescreen Live Game Frame Canvas -->
-        <div class="iframe-wrapper">
-            <iframe 
-                src="https://bloxd.io" 
-                allow="fullscreen; keyboard; gamepad"
-                scrolling="no"
-                title="Bloxd.io Core Client Engine">
-            </iframe>
-        </div>
-
-        <!-- System Architecture Footnotes -->
-        <div class="division-details">
-            Host: Shahadah Studios Elite // Execution: Client-Side Web Sandbox Rendering Node<br>
-            All hardware accelerations, keyboard focus states, and canvas matrices map at full capability.
-        </div>
+    <!-- Moteur Bloxd.io en Plein Écran Absolu -->
+    <div class="game-viewport">
+        <iframe 
+            src="https://bloxd.io" 
+            allow="fullscreen; keyboard; gamepad"
+            scrolling="no"
+            title="Bloxd.io Fullscreen Engine">
+        </iframe>
     </div>
 
-    <!-- AUTOMATED ANTI-BOT DEFENSE GATE SYSTEM -->
-    <!-- 1. Load the official secure Google reCAPTCHA API script (Ultra-lightweight) -->
+    <!-- APRE-FEU AUTOMATISÉ GOOGLE reCAPTCHA V3 -->
     <script src="https://google.com"></script>
-
     <script>
-        // 2. Vanilla JS execution loop to analyze visitor behavior invisibly
         grecaptcha.ready(function() {
             grecaptcha.execute('YOUR_GOOGLE_SITE_KEY', {action: 'homepage'}).then(function(token) {
-                // The automated browser token is evaluated cleanly at 60 FPS
-                console.log("SHS Elite Security: Connection Node Verified.");
+                console.log("SHS Elite Security: Client Node Armored.");
             });
         });
     </script>
 
 </body>
 </html>
+
