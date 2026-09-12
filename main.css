@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New webpage</title>
+   <style>
+        /* ==================================================================
+           👑 SHAHADAH STUDIOS ELITE // IMMERSIVE FULL SCREEN CLIENT (SOLAR)
+           ================================================================== */
+        :root {
+            --bg-metallic: #08080b;
+            --surface-panel: #0f0f14;
+            --gold-primary: #d4af37;
+            --text-main: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-metallic);
+            font-family: 'Courier New', monospace;
+            overflow: hidden; /* Supprime les barres de défilement pour un effet application pur */
+        }
+
+        /* BANDEAU DE CONTRÔLE SUPÉRIEUR DISCRET (SOLAR INTERFACE) */
+        .client-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: var(--surface-panel);
+            border-bottom: 2px solid var(--gold-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 999999; /* Toujours visible au-dessus du jeu */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-link {
+            font-size: 11px;
+            color: var(--gold-primary);
+            text-decoration: none;
+            border: 1px solid var(--gold-primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .back-link:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-metallic);
+        }
+
+        .client-status {
+            color: var(--gold-primary);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* CADRE CANVAS PLEIN ÉCRAN POUR BLOXD.IO */
+        .game-viewport {
+            position: absolute;
+            top: 40px; /* Aligné juste sous le bandeau de contrôle */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 40px); /* Occupe 100% de l'espace restant */
+            background-color: #000000;
+        }
+
+        .game-viewport iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+    </head>
+    <body>
+
+
+    </body>
+</html>
