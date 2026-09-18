@@ -41,10 +41,16 @@ Suggestions and corrections are welcome. Before submitting changes, please verif
 
 ## Ownership and license
 
-This project is proprietary. The source code, website design, written content, branding, and other original materials may not be copied, modified, redistributed, republished, or used commercially without prior written permission from Shahadah Studios Elite.
+This project is proprietary. The source code, website design, written content, branding, and other original materials may not be copied, modified, redistributed, republished, or used commercially [...]
 
 See [LICENSE](LICENSE) for the complete terms.
 
 ## Disclaimer
 
-BloxdWorldCode is an independent community project and is not affiliated with, sponsored by, or endorsed by Bloxd.io or its developers. Commands and code examples may change as Bloxd.io is updated. Use them responsibly and test them in an appropriate world.
+BloxdWorldCode is an independent community project and is not affiliated with, sponsored by, or endorsed by Bloxd.io or its developers. Commands and code examples may change as Bloxd.io is updated[...]
+
+## Credits
+
+- Created and maintained by [Shahadah-studs](https://github.com/Shahadah-studs).
+- Built as an independent community reference for **Bloxd.io** world codes and commands.
+- **Bloxd.io** and related trademarks belong to their respective owners.
