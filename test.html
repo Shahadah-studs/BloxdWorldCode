@@ -89,6 +89,7 @@
             .dropdown {
                 position: relative;
                 display: inline-block;
+                padding-bottom: 20px; /* Invisible hover bridge box */
             }
 
             .dropbtn {
@@ -112,14 +113,13 @@
             .dropdown-content {
                 display: none;
                 position: absolute;
-                top: 100%;
+                top: 55px; /* Tightly attached directly under button */
                 left: 0;
                 background-color: rgba(4, 12, 6, 0.95);
                 min-width: 320px;
                 border: 6px solid #10b981;
                 box-shadow: 0 0 25px #10b981, 6px 6px 0px #000;
                 outline: 6px solid #4ade80;
-                margin-top: 15px;
                 padding: 10px;
             }
 
@@ -129,7 +129,7 @@
             }
 
             @keyframes menuFade {
-                0% { opacity: 0; transform: translateY(-10px); }
+                0% { opacity: 0; transform: translateY(-5px); }
                 100% { opacity: 1; transform: translateY(0); }
             }
 
