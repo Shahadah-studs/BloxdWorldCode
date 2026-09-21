@@ -2,18 +2,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Bloxd.io Commands and code">
-        <title>BloxdWorldCode</title>
         <meta name="google-site-verification" content="ON2-0a9uMld72pjnSeQmhBYf-Dv77KaRMOFGa6ACOQE" />
-        <meta name="msvalidate.01" content="69570AAA47A9449FF402125474C2E457" />
+        <title>BloxdWorldCode - Commands</title>
         <link rel="icon" type="image/png" href="/favicon.png?v=final">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://googleapis.com">
         <link rel="preconnect" href="https://gstatic.com" crossorigin>
         <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     </head>
-
     <body>
+
         <div class="bg-animation">
             <div class="square"></div>
             <div class="square"></div>
@@ -35,14 +33,13 @@
                 background-size: 400% 400%;
                 animation: gradientBG 15s ease infinite;
                 color: #fff;
-                height: 100vh;
+                min-height: 100vh;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 align-items: center;
-                overflow: hidden;
+                overflow-x: hidden;
                 position: relative;
-                padding: 40px 20px;
+                padding: 60px 40px;
             }
 
             @keyframes gradientBG {
@@ -68,192 +65,185 @@
                 bottom: 100%;
             }
 
-            .square:nth-child(1) { left: 8%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
-            .square:nth-child(2) { left: 25%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
-            .square:nth-child(3) { left: 75%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
-            .square:nth-child(4) { left: 90%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+            .square:nth-child(1) { left: 6%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
+            .square:nth-child(2) { left: 20%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+            .square:nth-child(3) { left: 80%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+            .square:nth-child(4) { left: 92%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
 
             @keyframes fall {
                 0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
-                10%, 90% { opacity: 0.3; }
+                10%, 90% { opacity: 0.35; }
                 100% { transform: translateY(115vh) rotate(360deg); opacity: 0; }
             }
 
-            .nav-container {
-                position: absolute;
-                top: 30px;
-                left: 30px;
-                z-index: 10;
+            .header-section {
+                text-align: center;
+                margin-bottom: 50px;
+                z-index: 2;
+                max-width: 1000px;
             }
 
-            .dropdown {
-                position: relative;
-                display: inline-block;
-                padding-bottom: 20px; /* Invisible hover bridge box */
+            h1 {
+                font-size: 2.6rem;
+                color: #a6ff00;
+                text-shadow: 0 0 20px #39ff14;
+                margin-bottom: 20px;
+                letter-spacing: -1px;
             }
 
-            .dropbtn {
-                background-color: #0b1f10;
+            #Milliondays {
+                font-size: 0.85rem;
+                color: #00ffff;
+                text-shadow: 0 0 8px #00ffff;
+                line-height: 1.8;
+            }
+
+            .main-content {
+                width: 100%;
+                max-width: 1050px;
+                background: rgba(4, 12, 6, 0.92);
+                padding: 40px;
+                border: 8px solid #10b981;
+                box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2);
+                outline: 8px solid #4ade80;
+                z-index: 2;
+                margin-bottom: 40px;
+            }
+
+            ul {
+                list-style: none;
+                border-bottom: 8px dashed #10b981;
+                padding: 30px 0;
+            }
+
+            ul:last-of-type {
+                border-bottom: none;
+            }
+
+            ol {
+                font-size: 1.2rem;
+                color: #ffff00;
+                text-shadow: 0 0 8px rgba(255, 255, 0, 0.4);
+                margin-bottom: 25px;
+                display: block;
+            }
+
+            li {
+                font-size: 0.75rem;
                 color: #39ff14;
-                border: 4px solid #39ff14;
-                padding: 14px 20px;
-                font-size: 0.8rem;
-                cursor: pointer;
+                line-height: 2.2;
+                margin-bottom: 15px;
+                padding-left: 20px;
+                position: relative;
+            }
+
+            li::before {
+                content: '■';
+                position: absolute;
+                left: 0;
+                color: #ff007f;
+                text-shadow: 0 0 5px #ff007f;
+                font-size: 0.7rem;
+            }
+
+            .nav-actions {
+                display: flex;
+                gap: 25px;
+                justify-content: center;
+                width: 100%;
+                max-width: 1050px;
+                z-index: 2;
+                margin-bottom: 40px;
+            }
+
+            a {
+                display: inline-block;
+                text-decoration: none;
+                background-color: #0b1f10;
+                color: #00ffff;
+                border: 4px solid #00ffff;
+                padding: 16px 28px;
+                font-size: 0.85rem;
                 box-shadow: 4px 4px 0px #000;
                 transition: transform 0.1s, box-shadow 0.1s;
             }
 
-            .dropdown:hover .dropbtn {
-                background-color: #39ff14;
+            a:hover {
+                background-color: #00ffff;
                 color: #000;
                 box-shadow: 2px 2px 0px #000;
                 transform: translate(2px, 2px);
             }
 
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                top: 55px; /* Tightly attached directly under button */
-                left: 0;
-                background-color: rgba(4, 12, 6, 0.95);
-                min-width: 320px;
-                border: 6px solid #10b981;
-                box-shadow: 0 0 25px #10b981, 6px 6px 0px #000;
-                outline: 6px solid #4ade80;
-                padding: 10px;
+            #the {
+                color: #ff007f;
+                border-color: #ff007f;
             }
 
-            .dropdown:hover .dropdown-content {
-                display: block;
-                animation: menuFade 0.2s ease-out;
+            #the:hover {
+                background-color: #ff007f;
+                color: #fff;
             }
 
-            @keyframes menuFade {
-                0% { opacity: 0; transform: translateY(-5px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-
-            .dropdown-content a {
-                color: #00ffff;
-                padding: 14px;
-                text-decoration: none;
-                display: block;
-                font-size: 0.75rem;
-                border-bottom: 4px dashed #10b981;
-                text-align: left;
-            }
-
-            .dropdown-content a:last-child {
-                border-bottom: none;
-            }
-
-            .dropdown-content a:hover {
-                background-color: #00ffff;
-                color: #000;
-                text-shadow: none;
-            }
-
-            .center-wrap {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                flex-grow: 1;
-                z-index: 2;
-                max-width: 800px;
-            }
-
-            h1 {
-                font-size: 3rem;
-                color: #a6ff00;
-                text-shadow: 0 0 20px #39ff14;
-                margin-bottom: 40px;
-                letter-spacing: -2px;
-                text-align: center;
-            }
-
-            .enter-btn {
-                display: inline-block;
-                background-color: #0b1f10;
-                color: #ffff00;
-                border: 6px solid #ffff00;
-                padding: 24px 44px;
-                font-size: 1.4rem;
-                text-decoration: none;
-                box-shadow: 6px 6px 0px #000;
-                transition: transform 0.1s, box-shadow 0.1s;
-                animation: pulseButton 1.5s infinite alternate;
-            }
-
-            .enter-btn:hover {
-                background-color: #ffff00;
-                color: #000;
-                box-shadow: 3px 3px 0px #000;
-                transform: translate(3px, 3px);
-                animation-play-state: paused;
-            }
-
-            @keyframes pulseButton {
-                0% { box-shadow: 4px 4px 0px #000, 0 0 10px rgba(255, 255, 0, 0.4); }
-                100% { box-shadow: 8px 8px 0px #000, 0 0 25px #ffff00; }
-            }
-
-            .welcome-info {
-                margin-top: 40px;
-                font-size: 0.75rem;
-                color: #39ff14;
-                text-shadow: 0 0 8px #10b981;
-                line-height: 2;
-                text-align: center;
-                max-width: 600px;
-            }
-
-            .copyright-footer {
+            .footer-copyright {
+                color: rgba(21, 255, 0, 0.6);
                 font-family: monospace;
                 font-size: 10px;
-                color: rgba(21, 255, 0, 0.6);
                 text-align: center;
                 z-index: 2;
                 letter-spacing: 1px;
                 border-top: 2px dashed rgba(16, 185, 129, 0.3);
                 width: 100%;
-                padding-top: 20px;
+                max-width: 1050px;
+                padding-top: 25px;
+                line-height: 1.6;
             }
         </style>
 
-        <nav class="nav-container">
-            <div class="dropdown">
-                <button class="dropbtn">MENU ▼</button>
-                <div class="dropdown-content">
-                    <a href="bloxd.html">Play Bloxd.io</a>
-                    <a href="api.html">Bloxd.io API's</a>
-                    <a href="comment.html">CHAT WITH AI</a>
-                    <a href="404.html">Test 404 Page</a>
-                    <a href="403.html">Test 403 Page</a>
-                </div>
-            </div>
-        </nav>
+        <div class="header-section">
+            <h1>Commands</h1>
+            <h2 id="Milliondays">Here you'll find secret and popular commands</h2>
+        </div>
 
-        <main class="center-wrap">
-            <h1>BloxdWorldCode</h1>
-            <a href="main.html" class="enter-btn">ENTER</a>
-            <p class="welcome-info">
-                See lots of World code and Commands for bloxd.io by clicking ENTER.<br><br>
-                By Clicking Chat with AI you can chat with an AI bot and ask about Bloxd.io
-            </p>
-        </main>
+        <div class="main-content">
+            <ul>
+                <ol>Popular commands</ol>
+                <li>/help: Lists general chat commands.</li>
+                <li>/ownerhelp: Shows world owner administrative commands.</li>
+                <li>/tp pos [x] [y] [z]: Teleports you to specific coordinates.</li>
+                <li>/defaultgamemode [gamemode]: Changes default mode for future players.</li>
+                <li>/gamemode [gamemode] [username]: Changes a specific player's game mode.</li>
+                <li>/setspawn: Sets the global spawn point at your location.</li>
+                <li>/toggleopen: Toggles public lobby listing status.</li>
+                <li>/description [desc]: Adds a description to your world.</li>
+            </ul>    
+            
+            <ul>
+                <ol>World Builder Commands</ol>
+                <li>//pos1: Registers the first corner coordinate of a regional structural box.</li>
+                <li>//pos2: Registers the opposite corner coordinate of a regional structural box.</li>
+                <li>//set [block_name]: Instantly Fills the entire designated area with a chosen block type.</li>
+                <li>//replace [old_block] [new_block]: Changes all specified blocks in an area without disturbing other assets.</li>
+                <li>//copy: Clones the designated structure area directly to your virtual clipboard.</li>
+                <li>//paste: Places the copied structural asset directly onto your character's current position.</li>
+                <li>//schematic save [name]: Exports a completed build region into a hard drive file.</li>
+                <li>//schematic load [name]: Imports a previously exported template file back onto the server grid.</li>    
+            </ul>
+            
+            <ul>
+                <ol>Secret Commands -Tested-</ol>
+                <li>Coming soon!!</li>
+            </ul>
+        </div>
 
-        <footer class="copyright-footer">
-            Shahadah Studios Elite -DO NOT USE THE WEB TITLE WITHOUT LICENSE-
-        </footer>
+        <div class="nav-actions">
+            <a href="index.html">BACK</a>
+            <a id="the" href="code.html">World Code</a>
+        </div>
 
-        <script src="https://google.com"></script>
-        <script>
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6Ld4W5gtAAAAAC7hi13LcbpbNgIncrdl6MB8K1ec', {action: 'homepage'}).then(function(token) {
-                    console.log("SHS Elite Security: Connection Node Verified.");
-                });
-            });
-        </script>
+        <div class="footer-copyright">
+            All Copyrights Reserved - DO NOT reuse the title "BloxdWorldCode" Without License from Shahadah Studios Elite
+        </div>    
+        
     </body>
 </html>
