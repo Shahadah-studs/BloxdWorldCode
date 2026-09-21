@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Bloxd.io Scripting API Documentation</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }
+        body { background-color: #040c06; color: #fff; min-height: 100vh; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; }
+        .bg-animation { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .square { position: absolute; background: transparent; animation: fall linear infinite; bottom: 100%; }
+        .square:nth-child(1) { left: 8%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
+        .square:nth-child(2) { left: 22%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+        .square:nth-child(3) { left: 78%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+        .square:nth-child(4) { left: 90%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+        @keyframes fall {
+            0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 0.35; }
+            100% { transform: translateY(115vh) rotate(360deg); opacity: 0; }
+        }
+        .sword-ground-scene { position: fixed; bottom: -20px; left: 50%; transform: translateX(-50%); width: 100%; height: 100vh; z-index: 1; pointer-events: none; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+        .pixel-sword { width: 70px; height: 250px; background: linear-gradient(to bottom, #00ffff 65%, #ff007f 65%); border: 8px solid #fff; box-shadow: 0 0 40px #00ffff, 0 0 70px rgba(0, 255, 255, 0.3); position: relative; transform: rotate(180deg); animation: stabFloat 3s ease-in-out infinite alternate; }
+        .pixel-sword::before { content: ''; position: absolute; top: 65%; left: -34px; width: 122px; height: 24px; background-color: #ffff00; border: 8px solid #fff; box-shadow: 0 0 20px #ffff00; }
+        .pixel-ground-line { width: 120%; height: 45px; background: linear-gradient(90deg, #10b981 0%, #39ff14 50%, #10b981 100%); border-top: 12px solid #ffff00; box-shadow: 0 0 35px #39ff14; margin-top: -15px; }
+        @keyframes stabFloat {
+            0% { transform: rotate(180deg) translateY(0px); opacity: 0.2; }
+            100% { transform: rotate(180deg) translateY(12px); opacity: 0.35; }
+        }
+        .header { text-align: center; margin-bottom: 40px; max-width: 1050px; z-index: 2; position: relative; }
+        .top-left-btn { position: absolute; top: -20px; left: 0; background-color: #0b1f10; color: #39ff14; border: 4px solid #39ff14; padding: 12px 20px; text-decoration: none; font-size: 0.8rem; box-shadow: 4px 4px 0px #000; transition: transform 0.1s, box-shadow 0.1s; }
+        .top-left-btn:hover { background-color: #39ff14; color: #000; box-shadow: 2px 2px 0px #000; transform: translate(2px, 2px); }
+        h1 { font-size: 2.2rem; color: #a6ff00; text-shadow: 0 0 20px #39ff14; margin: 35px 0 20px; letter-spacing: -1px; line-height: 1.3; }
+        .subtitle { font-size: 0.75rem; color: #00ffff; text-shadow: 0 0 8px #00ffff; line-height: 1.8; }
+        .api-container { width: 100%; max-width: 1050px; background: rgba(4, 12, 6, 0.92); padding: 30px; border: 8px solid #10b981; box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2); outline: 8px solid #4ade80; z-index: 2; }
+        .api-card { border-bottom: 8px dashed #10b981; padding: 30px 0; }
+        .api-card:last-child { border-bottom: none; }
+        .api-route { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .tag-engine { background-color: #ff007f; color: #fff; padding: 6px 12px; font-size: 0.7rem; border: 4px solid #ff007f; box-shadow: 3px 3px 0px #000; text-shadow: 0 0 5px #fff; }
+        .endpoint { font-size: 1rem; color: #ffff00; text-shadow: 0 0 5px rgba(255, 255, 0, 0.4); }
+        .description { font-size: 0.75rem; color: #39ff14; line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background-color: #030804; border: 4px solid #10b981; padding: 15px; font-size: 0.75rem; color: #a6ff00; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; box-shadow: inset 0 0 15px rgba(0,0,0,0.9); }
+        @media (max-width: 900px) {
+            h1 { font-size: 1.6rem; }
+            .endpoint { font-size: 0.85rem; }
+            .code-block { font-size: 0.65rem; }
+            .api-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <div class="sword-ground-scene">
+        <div class="pixel-sword"></div>
+        <div class="pixel-ground-line"></div>
+    </div>
+
+    <div class="header">
+        <a href="/index.html" class="top-left-btn">< HOME</a>
+        <h1>BLOXD CODE API</h1>
+        <p class="subtitle">Cracking open the official documentation directly from bloxd.io/docs!</p>
+    </div>
+
+    <div class="api-container">
+        
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">CHAT</span>
+                <span class="endpoint">api.sendMessage(playerId, "text", options)</span>
+            </div>
+            <p class="description">Slide right into a specific player's chat feed. Perfect for whispering hidden hints or displaying custom server alert messages in style.</p>
+            <div class="code-block">api.sendMessage(playerId, "Welcome to the 10th best fan lobby!", { color: "cyan" });</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">CHAT</span>
+                <span class="endpoint">api.broadcastMessage("text", options)</span>
+            </div>
+            <p class="description">Got big news? Use this to send a global chat announcement that every single block-builder currently in the server will see instantly.</p>
+            <div class="code-block">api.broadcastMessage("Server rebooting for an epic update!", { color: "red" });</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">UI</span>
+                <span class="endpoint">api.sendFlyingMiddleMessage(playerId, ["text"], speed)</span>
+            </div>
+            <p class="description">Need to grab someone's attention? Force text to fly right across the middle of their screen at whatever speed you choose.</p>
+            <div class="code-block">api.sendFlyingMiddleMessage(myId, ["LEVEL UP!"], 100);</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">PHYSICS</span>
+                <span class="endpoint">api.setVelocity(playerId, x, y, z)</span>
+            </div>
+            <p class="description">Launch your players across the arena! Hard-sets velocity along the X, Y, and Z axes. Perfect for launching jump pads or creating speed zones.</p>
+            <div class="code-block">api.setVelocity(myId, 0, 9, 0);</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">PHYSICS</span>
+                <span class="endpoint">api.applyImpulse(playerId, x, y, z)</span>
+            </div>
+            <p class="description">YEET! Applies instant physics momentum vectors onto a player entity. Incredible for knockback weapons and gravity triggers.</p>
+            <div class="code-block">api.applyImpulse(myId, 9, 0, 9);</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">KILLFEED</span>
+                <span class="endpoint">api.addCustomKillfeedMessage(options)</span>
+            </div>
+            <p class="description">Inject custom combat lines directly onto the global battle feed logs. Track spectacular custom elimination records effortlessly.</p>
+            <div class="code-block">api.addCustomKillfeedMessage({ name: 'Bob', colour: 'orange', message: 'was vanished into the void' });</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">HEALTH</span>
+                <span class="endpoint">api.getHealth(playerId) / api.setHealth(playerId, amount)</span>
+            </div>
+            <p class="description">Keep track of player lifelines. Use this pairing to grab their current health values, check them, or instantly replenish their life pool.</p>
+            <div class="code-block">const oldHealth = api.getHealth(myId);
+api.setHealth(myId, 100);</div>
+        </div>
+
+        <div class="api-card">
+            <div class="api-route">
+                <span class="tag-engine">SYSTEM</span>
+                <span class="endpoint">api.log("text")</span>
+            </div>
+            <p class="description">Is your custom loop behavior acting weird? Print critical data directly out into your local developer screen tracker to crush bugs immediately.</p>
+            <div class="code-block">api.log("Coordinate tracking system fully operational!");</div>
+        </div>
+
+    </div>
+</body>
