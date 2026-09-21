@@ -18,7 +18,7 @@
         }
 
         body {
-            background-color: #05050a;
+            background-color: #040c06;
             color: #fff;
             height: 100vh;
             display: flex;
@@ -48,38 +48,64 @@
             bottom: 100%;
         }
 
-        .square:nth-child(1) { left: 10%; width: 40px; height: 40px; border: 4px solid #ff007f; box-shadow: 0 0 15px #ff007f; animation-duration: 8s; animation-delay: 0s; }
+        .square:nth-child(1) { left: 10%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; animation-delay: 0s; }
         .square:nth-child(2) { left: 25%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
-        .square:nth-child(3) { left: 40%; width: 60px; height: 60px; border: 6px solid #ffff00; box-shadow: 0 0 20px #ffff00; animation-duration: 12s; animation-delay: 1s; }
-        .square:nth-child(4) { left: 55%; width: 30px; height: 30px; border: 4px solid #39ff14; box-shadow: 0 0 12px #39ff14; animation-duration: 7s; animation-delay: 4s; }
-        .square:nth-child(5) { left: 70%; width: 50px; height: 50px; border: 5px solid #ff007f; box-shadow: 0 0 18px #ff007f; animation-duration: 10s; animation-delay: 3s; }
+        .square:nth-child(3) { left: 45%; width: 60px; height: 60px; border: 6px solid #a6ff00; box-shadow: 0 0 20px #a6ff00; animation-duration: 12s; animation-delay: 1s; }
+        .square:nth-child(4) { left: 55%; width: 30px; height: 30px; border: 4px solid #10b981; box-shadow: 0 0 12px #10b981; animation-duration: 7s; animation-delay: 4s; }
+        .square:nth-child(5) { left: 75%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
         .square:nth-child(6) { left: 85%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
-        .square:nth-child(7) { left: 95%; width: 35px; height: 35px; border: 4px solid #ffff00; box-shadow: 0 0 14px #ffff00; animation-duration: 9s; animation-delay: 5s; }
+        .square:nth-child(7) { left: 95%; width: 35px; height: 35px; border: 4px solid #a6ff00; box-shadow: 0 0 14px #a6ff00; animation-duration: 9s; animation-delay: 5s; }
 
         @keyframes fall {
             0% {
                 transform: translateY(-10%) rotate(0deg);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
             100% {
                 transform: translateY(115vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
+        .pixel-sword {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 320px;
+            height: 320px;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle, #00ffff 10px, transparent 11px),
+                linear-gradient(to right, #00ffff 20px, transparent 20px),
+                linear-gradient(to bottom, #10b981 20px, transparent 20px);
+            background-size: 20px 20px;
+            clip-path: polygon(
+                0% 100%, 0% 90%, 10% 90%, 10% 80%, 20% 80%, 20% 70%, 30% 70%, 30% 60%, 40% 60%, 40% 50%, 30% 50%, 30% 40%, 40% 40%, 40% 30%, 50% 30%, 50% 40%, 60% 40%, 60% 30%, 70% 30%, 70% 20%, 80% 20%, 80% 10%, 90% 10%, 90% 0%, 100% 0%, 100% 10%, 90% 10%, 90% 20%, 80% 20%, 80% 30%, 70% 30%, 70% 40%, 60% 40%, 60% 50%, 50% 50%, 50% 60%, 40% 60%, 40% 70%, 30% 70%, 30% 80%, 20% 80%, 20% 90%, 10% 90%, 10% 100%
+            );
+            background-color: #39ff14;
+            box-shadow: inset 0 0 40px #00ffff;
+            animation: floatSword 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatSword {
+            0% { transform: translate(-50%, -45%) rotate(40deg); opacity: 0.12; }
+            100% { transform: translate(-50%, -55%) rotate(50deg); opacity: 0.18; }
+        }
+
         .container {
             position: relative;
             z-index: 2;
             max-width: 850px;
-            background: rgba(5, 5, 10, 0.8);
+            background: rgba(4, 12, 6, 0.85);
             padding: 40px;
-            border: 6px dashed #121824;
+            border: 8px solid #10b981;
+            box-shadow: 0 0 25px #10b981, inset 0 0 15px rgba(57, 255, 20, 0.3);
+            outline: 8px solid #4ade80;
         }
 
         .top-left-btn {
@@ -87,7 +113,7 @@
             top: 20px;
             left: 20px;
             z-index: 3;
-            background-color: #0c0f1d;
+            background-color: #0b1f10;
             color: #39ff14;
             border: 4px solid #39ff14;
             padding: 12px 18px;
@@ -107,31 +133,31 @@
 
         .error-code {
             font-size: 7rem;
-            color: #ff007f;
-            text-shadow: 0 0 10px #ff007f, 0 0 30px #ff007f, 0 0 50px #ff007f;
+            color: #a6ff00;
+            text-shadow: 0 0 10px #a6ff00, 0 0 30px #39ff14;
             margin-bottom: 20px;
             letter-spacing: -6px;
             animation: pulse 1.5s infinite alternate;
         }
 
         @keyframes pulse {
-            0% { text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; }
-            100% { text-shadow: 0 0 20px #ff007f, 0 0 40px #ff007f, 0 0 60px #ff007f; }
+            0% { text-shadow: 0 0 10px #a6ff00, 0 0 20px #39ff14; }
+            100% { text-shadow: 0 0 25px #a6ff00, 0 0 45px #39ff14, 0 0 65px #00ffff; }
         }
 
         .message {
             font-size: 1.2rem;
             line-height: 2.2;
-            color: #00ffff;
-            text-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
+            color: #39ff14;
+            text-shadow: 0 0 8px #10b981, 0 0 20px #39ff14;
             margin-bottom: 50px;
         }
 
         .bloxd-btn {
             display: inline-block;
-            background-color: #0c0f1d;
-            color: #ffff00;
-            border: 6px solid #ffff00;
+            background-color: #0b1f10;
+            color: #00ffff;
+            border: 6px solid #00ffff;
             padding: 22px 32px;
             font-size: 1rem;
             text-decoration: none;
@@ -140,7 +166,7 @@
         }
 
         .bloxd-btn:hover {
-            background-color: #ffff00;
+            background-color: #00ffff;
             color: #000;
             box-shadow: 3px 3px 0px #000;
             transform: translate(3px, 3px);
@@ -151,17 +177,23 @@
             .message { font-size: 0.8rem; line-height: 2; }
             .bloxd-btn { font-size: 0.75rem; padding: 16px 22px; }
             .top-left-btn { font-size: 0.6rem; padding: 8px 12px; }
-            .container { padding: 20px; border-width: 4px; }
+            .container { padding: 20px; border-width: 4px; outline-width: 4px; }
+            .pixel-sword { width: 200px; height: 200px; }
         }
     </style>
 </head>
 <body>
 
     <div class="bg-animation">
+        <div class="pixel-sword"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
@@ -171,7 +203,7 @@
 
     <div class="container">
         <h1 class="error-code">404</h1>
-        <p class="message">We did not bloxd that Page!<br>Bloxd back to the main site</p>
+        <p class="message">We did not find that Page!<br>Bloxd back to the main site</p>
         <a href="/index.html" class="bloxd-btn">Bloxd back to the main site</a>
     </div>
 
