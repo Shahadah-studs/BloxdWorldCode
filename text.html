@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="ON2-0a9uMld72pjnSeQmhBYf-Dv77KaRMOFGa6ACOQE" />
+        <link rel="icon" type="image/png" href="/favicon.png?v=final">
+        <title>World Codes - List</title>
+        <link rel="preconnect" href="https://googleapis.com">
+        <link rel="preconnect" href="https://gstatic.com" crossorigin>
+        <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="bg-animation">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }
+            body { background: linear-gradient(135deg, #040c06, #0b1f10, #040c06); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; padding: 40px 20px; }
+            @keyframes gradientBG { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+            .bg-animation { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+            .square { position: absolute; background: transparent; animation: fall linear infinite; bottom: 100%; }
+            .square:nth-child(1) { left: 6%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
+            .square:nth-child(2) { left: 20%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+            .square:nth-child(3) { left: 80%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+            .square:nth-child(4) { left: 92%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+            @keyframes fall { 0% { transform: translateY(-10%) rotate(0deg); opacity: 0; } 10%, 90% { opacity: 0.35; } 100% { transform: translateY(115vh) rotate(360deg); opacity: 0; } }
+            .header-section { text-align: center; margin-bottom: 40px; z-index: 2; max-width: 1000px; }
+            h1 { font-size: 2.2rem; color: #a6ff00; text-shadow: 0 0 20px #39ff14; margin: 35px 0 20px; letter-spacing: -1px; line-height: 1.3; }
+            h2 { font-size: 0.75rem; color: #00ffff; text-shadow: 0 0 8px #00ffff; line-height: 1.8; }
+            .main-content { width: 100%; max-width: 1050px; background: rgba(4, 12, 6, 0.92); padding: 30px; border: 8px solid #10b981; box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2); outline: 8px solid #4ade80; z-index: 2; margin-bottom: 40px; }
+            .category-block { border-bottom: 8px dashed #10b981; padding: 25px 0; }
+            .category-block:last-of-type { border-bottom: none; }
+            ol { font-size: 1.1rem; color: #ffff00; text-shadow: 0 0 8px rgba(255, 255, 0, 0.4); margin-bottom: 20px; display: block; list-style: none; }
+            .sub-title { font-size: 0.85rem; color: #00ffff; text-shadow: 0 0 5px #00ffff; margin-bottom: 15px; }
+            ul { list-style: none; }
+            li { font-size: 0.75rem; color: #39ff14; line-height: 2; margin-bottom: 15px; padding-left: 25px; position: relative; }
+            li::before { content: '■'; position: absolute; left: 0; color: #ff007f; text-shadow: 0 0 5px #ff007f; font-size: 0.7rem; }
+            .code-inline { color: #ffff00; text-shadow: 0 0 3px rgba(255, 255, 0, 0.3); }
+            .detail-text { display: block; color: #fff; font-size: 0.7rem; line-height: 1.6; margin-top: 5px; padding-left: 10px; border-left: 4px solid #10b981; }
+            .nav-actions { display: flex; gap: 25px; justify-content: center; width: 100%; max-width: 1050px; z-index: 2; margin-bottom: 40px; }
+            a { display: inline-block; text-decoration: none; background-color: #0b1f10; color: #00ffff; border: 4px solid #00ffff; padding: 16px 28px; font-size: 0.85rem; box-shadow: 4px 4px 0px #000; transition: transform 0.1s, box-shadow 0.1s; }
+            a:hover { background-color: #00ffff; color: #000; box-shadow: 2px 2px 0px #000; transform: translate(2px, 2px); }
+            .note-banner { background-color: rgba(255, 0, 127, 0.1); border: 4px dashed #ff007f; padding: 20px; color: #ff007f; text-shadow: 0 0 5px #ff007f; font-size: 0.75rem; line-height: 1.8; text-align: center; width: 100%; max-width: 1050px; z-index: 2; margin-bottom: 40px; }
+            @media (max-width: 900px) { h1 { font-size: 1.6rem; } ol { font-size: 0.95rem; } li { font-size: 0.65rem; } .main-content { padding: 20px; } }
+        </style>
+
+        <div class="header-section">
+            <h1>World Codes - List</h1>
+            <h2>World Codes for Bloxd.io</h2>
+        </div>
+
+        <div class="main-content">
+            <div class="category-block">
+                <ol>Core Event Listeners (Callbacks)</ol>
+                <ul>
+                    <li><span class="code-inline">api.onPlayerJoin(player)</span>: Triggers immediately when a user enters the lobby.</li>
+                    <li><span class="code-inline">api.onPlayerLeave(player)</span>: Tracks when a player disconnects or quits.</li>
+                    <li><span class="code-inline">api.onPlayerChat(player, message)</span>: Monitors text chat; crucial for setting up custom command prefixes (like !spawn or !tp).</li>
+                    <li><span class="code-inline">api.onPlayerChangeBlock(player, blockX, blockY, blockZ, oldBlock, newBlock)</span>: Triggers when a player places or breaks a block.</li>
+                    <li><span class="code-inline">api.onRespawnRequest(player)</span>: Intercepts the moment a player dies or requests a reset.</li>
+                    <li><span class="code-inline">api.tick()</span>: Runs continuously on every single server frame. Used for timers, zones, and real-time game loops.</li>
+                </ul>
+            </div>
+
+            <div class="category-block">
+                <ol>Player Manipulation Commands/Codes - Tested</ol>
+                <ul>
+                    <li><span class="code-inline">api.player.setPosition(x, y, z)</span>: Instantly teleports a player to designated coordinates.</li>
+                    <li><span class="code-inline">api.player.getVelocity() / api.player.setVelocity(x, y, z)</span>: Controls player speed, launch pads, and knockback effects.</li>
+                    <li><span class="code-inline">api.player.sendMessage("text")</span>: Sends a private system notification directly to that player's chat feed.</li>
+                    <li><span class="code-inline">api.player.getInventory()</span>: Checks what items or blocks the player is holding.</li>
+                </ul>
+            </div>
+
+            <div class="category-block">
+                <ol>World & Block Manipulation</ol>
+                <div class="sub-title">Modifying Blocks (Active Manipulation)</div>
+                <ul>
+                    <li>
+                        <span class="code-inline">api.changeBlock(x, y, z, "blockType")</span>
+                        <span class="detail-text">What it does: Instantly replaces a block at specific coordinates with a new block type.<br>Usage: Changing an active block to a different material or spawning structures.</span>
+                    </li>
+                    <li>
+                        <span class="code-inline">api.setBlock(x, y, z, "blockType")</span>
+                        <span class="detail-text">What it does: Forces a single block grid coordinate to become a specific item ID.<br>Usage: Identical to changeBlock, used interchangeably depending on server API variations.</span>
+                    </li>
+                    <li>
+                        <span class="code-inline">api.removeBlock(x, y, z)</span>
+                        <span class="detail-text">What it does: Deletes the block at the specified coordinates, leaving empty space.<br>Usage: Clearing paths, resetting maps, or destroying structures.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note-banner">
+            NOTICE: Verified standard structural execution environment rules. Valid "api." parameters have been appended across active method stacks.
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html">Back to Homepage</a>
+            <a href="main.html">Back to "Commands"</a>
+        </div>
+    </body>
+</html>
