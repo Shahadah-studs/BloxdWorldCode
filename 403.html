@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Forbidden Access</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', monospace;
+            image-rendering: pixelated;
+        }
+
+        body {
+            background-color: #040c06;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .square {
+            position: absolute;
+            background: transparent;
+            animation: fall linear infinite;
+            bottom: 100%;
+        }
+
+        .square:nth-child(1) { left: 10%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; animation-delay: 0s; }
+        .square:nth-child(2) { left: 25%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+        .square:nth-child(3) { left: 45%; width: 60px; height: 60px; border: 6px solid #ffff00; box-shadow: 0 0 20px #ffff00; animation-duration: 12s; animation-delay: 1s; }
+        .square:nth-child(4) { left: 55%; width: 30px; height: 30px; border: 4px solid #10b981; box-shadow: 0 0 12px #10b981; animation-duration: 7s; animation-delay: 4s; }
+        .square:nth-child(5) { left: 75%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+        .square:nth-child(6) { left: 85%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+        .square:nth-child(7) { left: 95%; width: 35px; height: 35px; border: 4px solid #ffff00; box-shadow: 0 0 14px #ffff00; animation-duration: 9s; animation-delay: 5s; }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% {
+                transform: translateY(115vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .pixel-lock {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 140px;
+            background-color: transparent;
+            border: 14px solid #ffff00;
+            box-shadow: 0 0 30px #ffff00;
+            border-radius: 8px;
+            opacity: 0.15;
+            animation: pulseLock 2s ease-in-out infinite alternate;
+        }
+
+        .pixel-lock::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 80px;
+            border: 14px solid #ffff00;
+            border-bottom: none;
+            border-radius: 50px 50px 0 0;
+        }
+
+        @keyframes pulseLock {
+            0% { transform: translate(-50%, -47%) scale(0.95); opacity: 0.12; }
+            100% { transform: translate(-50%, -53%) scale(1.05); opacity: 0.2; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            background: rgba(4, 12, 6, 0.85);
+            padding: 40px;
+            border: 8px solid #10b981;
+            box-shadow: 0 0 25px #10b981, inset 0 0 15px rgba(57, 255, 20, 0.3);
+            outline: 8px solid #4ade80;
+        }
+
+        .top-left-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+            background-color: #0b1f10;
+            color: #39ff14;
+            border: 4px solid #39ff14;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px #000;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .top-left-btn:hover {
+            background-color: #39ff14;
+            color: #000;
+            box-shadow: 2px 2px 0px #000;
+            transform: translate(2px, 2px);
+        }
+
+        .error-code {
+            font-size: 7rem;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00, 0 0 30px #39ff14;
+            margin-bottom: 20px;
+            letter-spacing: -6px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px #ffff00, 0 0 20px #39ff14; }
+            100% { text-shadow: 0 0 25px #ffff00, 0 0 45px #39ff14, 0 0 65px #00ffff; }
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 2.2;
+            color: #39ff14;
+            text-shadow: 0 0 8px #10b981, 0 0 20px #39ff14;
+            margin-bottom: 50px;
+        }
+
+        .bloxd-btn {
+            display: inline-block;
+            background-color: #0b1f10;
+            color: #00ffff;
+            border: 6px solid #00ffff;
+            padding: 22px 32px;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 6px 6px 0px #000;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .bloxd-btn:hover {
+            background-color: #00ffff;
+            color: #000;
+            box-shadow: 3px 3px 0px #000;
+            transform: translate(3px, 3px);
+        }
+
+        @media (max-width: 768px) {
+            .error-code { font-size: 4rem; }
+            .message { font-size: 0.8rem; line-height: 2; }
+            .bloxd-btn { font-size: 0.75rem; padding: 16px 22px; }
+            .top-left-btn { font-size: 0.6rem; padding: 8px 12px; }
+            .container { padding: 20px; border-width: 4px; outline-width: 4px; }
+            .pixel-lock { width: 130px; height: 100px; }
+            .pixel-lock::before { width: 70px; height: 50px; border-width: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div class="pixel-lock"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <a href="/index.html" class="top-left-btn">< BACK</a>
+
+    <div class="container">
+        <h1 class="error-code">403</h1>
+        <p class="message">Access Forbidden!<br>You don't have permission here</p>
+        <a href="/index.html" class="bloxd-btn">Bloxd back to the main site</a>
+    </div>
+
+</body>
+</html>
