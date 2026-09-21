@@ -2,72 +2,248 @@
 <html>
     <head>
         <meta charset="utf-8">
-         <meta name="google-site-verification" content="ON2-0a9uMld72pjnSeQmhBYf-Dv77KaRMOFGa6ACOQE" />
-        <title>BloxdWorldCode - Commands </title>
-       <link rel="icon" type="image/png" href="/favicon.png?v=final">
+        <meta name="google-site-verification" content="ON2-0a9uMld72pjnSeQmhBYf-Dv77KaRMOFGa6ACOQE" />
+        <title>BloxdWorldCode - Commands</title>
+        <link rel="icon" type="image/png" href="/favicon.png?v=final">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
-        
+        <link rel="preconnect" href="https://googleapis.com">
+        <link rel="preconnect" href="https://gstatic.com" crossorigin>
+        <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     </head>
     <body>
-<style>h1{text-align:center;
-color:blue;
-    font-family:"Mono";
-} 
-    body{background-image:linear-gradient(to right, blue,yellow);}
-#Milliondays{font-size:20px;text-align:center;
-    font-family:sans-serif; color:rgb(0, 187, 255);
-}
- ol{font-size:24px;
-     font-family:Monospace;color:white;
 
- }   
-li{font-size:20px;
-    font-family:"sans";color:rgb(57, 217, 222);
-}
-a{
-    text-decoration:none; border:double,2px;
+        <div class="bg-animation">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
 
-    color:rgb(31, 110, 95);
-    background-color:rgb(157, 228, 232);
-}
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Press Start 2P', monospace;
+                image-rendering: pixelated;
+            }
 
-div{color:rgb(122, 151, 153);
-    font-family:monospace;
-    font-size:9px;
-}
-#the{font-family:mono; font-size:25px; border:solid; color:rgb(55, 161, 101);}
-</style>
-<h1>Commands</h1>
-<h2 id="Milliondays">Here you'll find secret and popular commands</h2>
-<ul>
-    <ol>Popular commands</ol>
-    <li>/help: Lists general chat commands.
-<li>/ownerhelp: Shows world owner administrative commands.
+            body {
+                background: linear-gradient(135deg, #040c06, #0b1f10, #040c06);
+                background-size: 400% 400%;
+                animation: gradientBG 15s ease infinite;
+                color: #fff;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow-x: hidden;
+                position: relative;
+                padding: 60px 40px;
+            }
 
-<li>/tp pos [x] [y] [z]: Teleports you to specific coordinates.
-<li>/defaultgamemode [gamemode]: Changes default mode for future players.
-<li>/gamemode [gamemode] [username]: Changes a specific player's game mode.
-<li>/setspawn: Sets the global spawn point at your location.
-<li>/toggleopen: Toggles public lobby listing status.
-<li>/description [desc]: Adds a description to your world.
-    
-</ul>    
-<ul>
-    <ol>World Builder Commands</ol>
-<li>//pos1: Registers the first corner coordinate of a regional structural box.
-<li>//pos2: Registers the opposite corner coordinate of a regional structural box.<li>//set [block_name]: Instantly Fills the entire designated area with a chosen block type.<li>//replace [old_block] [new_block]: Changes all specified blocks in an area without disturbing other assets.<li>//copy: Clones the designated structure area directly to your virtual clipboard.<li>//paste: Places the copied structural asset directly onto your character's current position.<li>//schematic save [name]: Exports a completed build region into a hard drive file.<li>//schematic load [name]: Imports a previously exported template file back onto the server grid.    
-</ul>
-<ul>
-    <ol>Secret Commands -Tested-</ol>
-    <li>Coming soon!!
-</ul>
-<a href="index.html">BACK</a><br>
-<br><a id="the" href="code.html">World Code</a>
+            @keyframes gradientBG {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
 
+            .bg-animation {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                pointer-events: none;
+            }
 
-<div><br>All Copyrights Reserved - DO NOT reuse the title "BloxdWorldCode" Without License from Shahadah Studios Elite</div>    
+            .square {
+                position: absolute;
+                background: transparent;
+                animation: fall linear infinite;
+                bottom: 100%;
+            }
+
+            .square:nth-child(1) { left: 6%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
+            .square:nth-child(2) { left: 20%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+            .square:nth-child(3) { left: 80%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+            .square:nth-child(4) { left: 92%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+
+            @keyframes fall {
+                0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+                10%, 90% { opacity: 0.35; }
+                100% { transform: translateY(115vh) rotate(360deg); opacity: 0; }
+            }
+
+            .header-section {
+                text-align: center;
+                margin-bottom: 50px;
+                z-index: 2;
+                max-width: 1000px;
+            }
+
+            h1 {
+                font-size: 2.6rem;
+                color: #a6ff00;
+                text-shadow: 0 0 20px #39ff14;
+                margin-bottom: 20px;
+                letter-spacing: -1px;
+            }
+
+            #Milliondays {
+                font-size: 0.85rem;
+                color: #00ffff;
+                text-shadow: 0 0 8px #00ffff;
+                line-height: 1.8;
+            }
+
+            .main-content {
+                width: 100%;
+                max-width: 1050px;
+                background: rgba(4, 12, 6, 0.92);
+                padding: 40px;
+                border: 8px solid #10b981;
+                box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2);
+                outline: 8px solid #4ade80;
+                z-index: 2;
+                margin-bottom: 40px;
+            }
+
+            ul {
+                list-style: none;
+                border-bottom: 8px dashed #10b981;
+                padding: 30px 0;
+            }
+
+            ul:last-of-type {
+                border-bottom: none;
+            }
+
+            ol {
+                font-size: 1.2rem;
+                color: #ffff00;
+                text-shadow: 0 0 8px rgba(255, 255, 0, 0.4);
+                margin-bottom: 25px;
+                display: block;
+            }
+
+            li {
+                font-size: 0.75rem;
+                color: #39ff14;
+                line-height: 2.2;
+                margin-bottom: 15px;
+                padding-left: 20px;
+                position: relative;
+            }
+
+            li::before {
+                content: '■';
+                position: absolute;
+                left: 0;
+                color: #ff007f;
+                text-shadow: 0 0 5px #ff007f;
+                font-size: 0.7rem;
+            }
+
+            .nav-actions {
+                display: flex;
+                gap: 25px;
+                justify-content: center;
+                width: 100%;
+                max-width: 1050px;
+                z-index: 2;
+                margin-bottom: 40px;
+            }
+
+            a {
+                display: inline-block;
+                text-decoration: none;
+                background-color: #0b1f10;
+                color: #00ffff;
+                border: 4px solid #00ffff;
+                padding: 16px 28px;
+                font-size: 0.85rem;
+                box-shadow: 4px 4px 0px #000;
+                transition: transform 0.1s, box-shadow 0.1s;
+            }
+
+            a:hover {
+                background-color: #00ffff;
+                color: #000;
+                box-shadow: 2px 2px 0px #000;
+                transform: translate(2px, 2px);
+            }
+
+            #the {
+                color: #ff007f;
+                border-color: #ff007f;
+            }
+
+            #the:hover {
+                background-color: #ff007f;
+                color: #fff;
+            }
+
+            .footer-copyright {
+                color: rgba(21, 255, 0, 0.6);
+                font-family: monospace;
+                font-size: 10px;
+                text-align: center;
+                z-index: 2;
+                letter-spacing: 1px;
+                border-top: 2px dashed rgba(16, 185, 129, 0.3);
+                width: 100%;
+                max-width: 1050px;
+                padding-top: 25px;
+                line-height: 1.6;
+            }
+        </style>
+
+        <div class="header-section">
+            <h1>Commands</h1>
+            <h2 id="Milliondays">Here you'll find secret and popular commands</h2>
+        </div>
+
+        <div class="main-content">
+            <ul>
+                <ol>Popular commands</ol>
+                <li>/help: Lists general chat commands.</li>
+                <li>/ownerhelp: Shows world owner administrative commands.</li>
+                <li>/tp pos [x] [y] [z]: Teleports you to specific coordinates.</li>
+                <li>/defaultgamemode [gamemode]: Changes default mode for future players.</li>
+                <li>/gamemode [gamemode] [username]: Changes a specific player's game mode.</li>
+                <li>/setspawn: Sets the global spawn point at your location.</li>
+                <li>/toggleopen: Toggles public lobby listing status.</li>
+                <li>/description [desc]: Adds a description to your world.</li>
+            </ul>    
+            
+            <ul>
+                <ol>World Builder Commands</ol>
+                <li>//pos1: Registers the first corner coordinate of a regional structural box.</li>
+                <li>//pos2: Registers the opposite corner coordinate of a regional structural box.</li>
+                <li>//set [block_name]: Instantly Fills the entire designated area with a chosen block type.</li>
+                <li>//replace [old_block] [new_block]: Changes all specified blocks in an area without disturbing other assets.</li>
+                <li>//copy: Clones the designated structure area directly to your virtual clipboard.</li>
+                <li>//paste: Places the copied structural asset directly onto your character's current position.</li>
+                <li>//schematic save [name]: Exports a completed build region into a hard drive file.</li>
+                <li>//schematic load [name]: Imports a previously exported template file back onto the server grid.</li>    
+            </ul>
+            
+            <ul>
+                <ol>Secret Commands -Tested-</ol>
+                <li>Coming soon!!</li>
+            </ul>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html">BACK</a>
+            <a id="the" href="code.html">World Code</a>
+        </div>
+
+        <div class="footer-copyright">
+            All Copyrights Reserved - DO NOT reuse the title "BloxdWorldCode" Without License from Shahadah Studios Elite
+        </div>    
         
     </body>
 </html>
