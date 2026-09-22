@@ -50,9 +50,6 @@ This project is proprietary. The source code, website design, written content, b
 
 See [LICENSE](LICENSE) for the complete terms.
 
-## Disclaimer
-
-BloxdWorldCode is an independent community project. It is not affiliated with, sponsored by, or endorsed by Bloxd.io or its developers. Commands, APIs, and code examples may change as Bloxd.io is updated, so always verify information before using it in a live world.
 
 ## Credits
 
