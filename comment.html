@@ -2,22 +2,72 @@
 <html>
     <head>
         <meta charset="utf-8">
-     
         <title>BloxdWorldCode - AI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="ON2-0a9uMld72pjnSeQmhBYf-Dv77KaRMOFGa6ACOQE" />
-  <link rel="icon" type="image/png" href="/favicon.png?v=final">
+        <link rel="icon" type="image/png" href="/favicon.png?v=final">
+        <link rel="preconnect" href="https://googleapis.com">
+        <link rel="preconnect" href="https://gstatic.com" crossorigin>
+        <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     </head>
     <body>
-<style> div{text-align:center; border:solid; } body{background-color:black;} a{text-align:left; text-decoration:none; color:blue; border:solid; background-color:yellow;} </style>
-        <div><iframe
-    src="https://www.chatbase.co/chatbot-iframe/1w6ED4xqu4dhrdso7RjTZ"
-    width="100%"
-    style="height: 100%; min-height: 700px"
-    frameborder="0"
-    allow="microphone"
-></iframe>
-</div>
-    <a href="index.html">HOME</a>
+
+        <div class="bg-animation">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }
+            body { background: linear-gradient(135deg, #040c06, #0b1f10, #040c06); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; padding: 40px 20px; }
+            @keyframes gradientBG { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+            
+            .bg-animation { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+            .square { position: absolute; background: transparent; animation: fall linear infinite; bottom: 100%; }
+            .square:nth-child(1) { left: 6%; width: 40px; height: 40px; border: 4px solid #39ff14; box-shadow: 0 0 15px #39ff14; animation-duration: 8s; }
+            .square:nth-child(2) { left: 20%; width: 20px; height: 20px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 5s; animation-delay: 2s; }
+            .square:nth-child(3) { left: 80%; width: 50px; height: 50px; border: 5px solid #39ff14; box-shadow: 0 0 18px #39ff14; animation-duration: 10s; animation-delay: 3s; }
+            .square:nth-child(4) { left: 92%; width: 25px; height: 25px; border: 4px solid #00ffff; box-shadow: 0 0 10px #00ffff; animation-duration: 6s; animation-delay: 0.5s; }
+            @keyframes fall { 0% { transform: translateY(-10%) rotate(0deg); opacity: 0; } 10%, 90% { opacity: 0.35; } 100% { transform: translateY(115vh) rotate(360deg); opacity: 0; } }
+
+            .nav-container { position: absolute; top: 30px; left: 30px; z-index: 10; }
+            .dropdown { position: relative; display: inline-block; padding-bottom: 25px; }
+            .dropbtn { background-color: #0b1f10; color: #39ff14; border: 4px solid #39ff14; padding: 14px 20px; font-size: 0.8rem; cursor: pointer; box-shadow: 4px 4px 0px #000; transition: transform 0.1s, box-shadow 0.1s; }
+            .dropdown:hover .dropbtn { background-color: #39ff14; color: #000; box-shadow: 2px 2px 0px #000; transform: translate(2px, 2px); }
+            
+            .dropdown-content { display: none; position: absolute; top: 55px; left: 0; background-color: rgba(4, 12, 6, 0.98); min-width: 320px; border: 6px solid #10b981; box-shadow: 0 0 25px #10b981, 6px 6px 0px #000; outline: 6px solid #4ade80; padding: 10px; z-index: 99999; }
+            .dropdown:hover .dropdown-content { display: block; animation: menuFade 0.2s ease-out; }
+            @keyframes menuFade { 0% { opacity: 0; transform: translateY(-5px); } 100% { opacity: 1; transform: translateY(0); } }
+
+            .dropdown-content a { color: #00ffff; padding: 14px; text-decoration: none; display: block; font-size: 0.75rem; border-bottom: 4px dashed #10b981; text-align: left; }
+            .dropdown-content a:last-child { border-bottom: none; }
+            .dropdown-content a:hover { background-color: #00ffff; color: #000; text-shadow: none; }
+
+            .chat-viewport { width: 100%; max-width: 1050px; background: rgba(4, 12, 6, 0.92); border: 8px solid #10b981; box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2); outline: 8px solid #4ade80; z-index: 2; margin-top: 80px; padding: 10px; position: relative; }
+            iframe { width: 100%; height: 100%; min-height: 700px; border: none; display: block; background-color: #000; }
+        </style>
+
+        <nav class="nav-container">
+            <div class="dropdown">
+                <button class="dropbtn">MENU ▼</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Home</a>
+                    <a href="main.html">Commands</a>
+                    <a href="code.html">World Code List</a>
+                    <a href="api.html">Bloxd.io API's</a>
+                    <a href="bloxd.html">Play Bloxd.io</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="chat-viewport">
+            <iframe
+                src="https://www.chatbase.co/chatbot-iframe/1w6ED4xqu4dhrdso7RjTZ"
+                allow="microphone">
+            </iframe>
+        </div>
+
     </body>
 </html>
