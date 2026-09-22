@@ -3,118 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="icon" type="image/png" href="/favicon.png?v=final">
+    <link rel="icon" type="image/png" href="/favicon.png?v=final">
     <title>Bloxd.io Client Console // Shahadah Studios Elite</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        /* ==================================================================
-           👑 SHAHADAH STUDIOS ELITE // IMMERSIVE FULL SCREEN CLIENT (SOLAR)
-           ================================================================== */
-        :root {
-            --bg-metallic: #08080b;
-            --surface-panel: #0f0f14;
-            --gold-primary: #d4af37;
-            --text-main: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-metallic);
-            font-family: 'Courier New', monospace;
-            overflow: hidden; /* Supprime les barres de défilement pour un effet application pur */
-        }
-
-        /* BANDEAU DE CONTRÔLE SUPÉRIEUR DISCRET (SOLAR INTERFACE) */
-        .client-header {
-            position: fixed;
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }
+        html, body { width: 100%; height: 100%; background-color: #000; overflow: hidden; position: relative; }
+        
+        /* Fixed top bar configuration limits layout reflow loops */
+        .client-header { 
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 40px;
-            background-color: var(--surface-panel);
-            border-bottom: 2px solid var(--gold-primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            z-index: 999999; /* Toujours visible au-dessus du jeu */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            height: 60px; 
+            background: linear-gradient(135deg, #040c06, #0b1f10);
+            border-bottom: 6px solid #10b981; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 30px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            z-index: 1000;
         }
-
-        .back-link {
-            font-size: 11px;
-            color: var(--gold-primary);
-            text-decoration: none;
-            border: 1px solid var(--gold-primary);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s, color 0.2s;
+        
+        .nav-container { position: relative; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 25px; }
+        
+        .dropbtn { 
+            background-color: #0b1f10; 
+            color: #39ff14; 
+            border: 4px solid #39ff14; 
+            padding: 10px 16px; 
+            font-size: 0.75rem; 
+            cursor: pointer; 
+            box-shadow: 4px 4px 0px #000; 
+            transition: transform 0.1s, box-shadow 0.1s; 
         }
-
-        .back-link:hover {
-            background-color: var(--gold-primary);
-            color: var(--bg-metallic);
+        
+        .dropdown:hover .dropbtn { 
+            background-color: #39ff14; 
+            color: #000; 
+            box-shadow: 2px 2px 0px #000; 
+            transform: translate(2px, 2px); 
         }
-
-        .client-status {
-            color: var(--gold-primary);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            top: 45px; 
+            left: 0; 
+            background-color: #040c06; 
+            min-width: 260px; 
+            border: 6px solid #10b981; 
+            box-shadow: 0 0 25px #10b981, 6px 6px 0px #000; 
+            outline: 6px solid #4ade80; 
+            padding: 8px; 
+            z-index: 99999; 
         }
-
-        /* CADRE CANVAS PLEIN ÉCRAN POUR BLOXD.IO */
-        .game-viewport {
+        
+        .dropdown:hover .dropdown-content { display: block; }
+        
+        .dropdown-content a { 
+            color: #00ffff; 
+            padding: 12px; 
+            text-decoration: none; 
+            display: block; 
+            font-size: 0.7rem; 
+            border-bottom: 4px dashed #10b981; 
+            text-align: left; 
+        }
+        
+        .dropdown-content a:last-child { border-bottom: none; }
+        
+        .dropdown-content a:hover { 
+            background-color: #00ffff; 
+            color: #000; 
+            text-shadow: none; 
+        }
+        
+        .client-status { 
+            color: #ffff00; 
+            font-size: 0.75rem; 
+            text-shadow: 0 0 8px #ffff00; 
+            letter-spacing: -1px; 
+        }
+        
+        /* Hardware accelerated layout container isolates the main iframe window element */
+        .game-viewport { 
             position: absolute;
-            top: 40px; /* Aligné juste sous le bandeau de contrôle */
+            top: 60px;
             left: 0;
-            width: 100%;
-            height: calc(100% - 40px); /* Occupe 100% de l'espace restant */
-            background-color: #000000;
+            width: 100%; 
+            height: calc(100% - 60px);
+            padding: 15px; 
+            background-color: #020503;
+            will-change: transform;
         }
-
-        .game-viewport iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+        
+        .iframe-container { 
+            width: 100%; 
+            height: 100%; 
+            border: 6px solid #10b981; 
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); 
+            outline: 6px solid #4ade80; 
+            background-color: #000; 
+        }
+        
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            display: block; 
         }
     </style>
 </head>
 <body>
 
-    <!-- Bandeau de Contrôle Supérieur Tactique -->
     <div class="client-header">
-        <a href="index.html" class="back-link">&lt; Back to Hompage</a>
-        <div class="client-status">> SHS ELITE COMPILER // LIVE MATRIX</div>
+        <nav class="nav-container">
+            <div class="dropdown">
+                <button class="dropbtn">MENU ▼</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Back to Homepage</a>
+                    <a href="api.html">Bloxd.io API's</a>
+                </div>
+            </div>
+        </nav>
+        <div class="client-status">> SHS ELITE COMPILER // LITE_MODE ACTIVE</div>
     </div>
 
-    <!-- Moteur Bloxd.io en Plein Écran Absolu -->
     <div class="game-viewport">
-        <iframe 
-            src="https://bloxd.io" 
-            allow="fullscreen; keyboard; gamepad"
-            scrolling="no"
-            title="Bloxd.io Fullscreen Engine">
-        </iframe>
+        <div class="iframe-container">
+            <iframe 
+                src="https://bloxd.io" 
+                allow="fullscreen; keyboard; gamepad"
+                scrolling="no"
+                title="Bloxd.io Fullscreen Engine">
+            </iframe>
+        </div>
     </div>
 
-    <!-- APRE-FEU AUTOMATISÉ GOOGLE reCAPTCHA V3 -->
     <script src="https://google.com"></script>
     <script>
         grecaptcha.ready(function() {
             grecaptcha.execute('YOUR_GOOGLE_SITE_KEY', {action: 'homepage'}).then(function(token) {
-                console.log("SHS Elite Security: Client Node Armored.");
+                console.log("SHS Elite Security: Client Engine Secured.");
             });
         });
     </script>
