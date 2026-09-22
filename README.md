@@ -1,6 +1,6 @@
 # BloxdWorldCode
 
-A community wiki for **Bloxd.io** world codes, commands, callbacks, and useful building references.
+A community wiki for the popular browser game **Bloxd.io** world codes, commands, callbacks, and useful building references.
 
 🌐 **Website:** [bloxdworldcode.vercel.app](https://bloxdworldcode.vercel.app)
 
@@ -11,7 +11,7 @@ A community wiki for **Bloxd.io** world codes, commands, callbacks, and useful b
 - World codes and code references
 - Core event listeners and callback notes
 - Player, world, and block manipulation examples
-
+- [NEW] API page for describing the API's in **Bloxd.io**
 ## Pages
 
 - [Homepage](index.html)
