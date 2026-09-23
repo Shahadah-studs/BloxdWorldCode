@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon.png?v=final">
-    <title>BloxdWorldCode - Chat Room</title>
+    <title>BloxdWorldCode - Community Chat</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -34,20 +34,16 @@
         .dropdown-content a:last-child { border-bottom: none; }
         .dropdown-content a:hover { background-color: #00ffff; color: #000; text-shadow: none; }
 
-        .header-section { text-align: center; margin-bottom: 30px; z-index: 2; max-width: 1050px; margin-top: 60px; }
+        .header-section { text-align: center; margin-bottom: 30px; z-index: 2; max-width: 1200px; margin-top: 60px; }
         h1 { font-size: 2.2rem; color: #a6ff00; text-shadow: 0 0 20px #39ff14; margin-bottom: 15px; letter-spacing: -1px; }
-        .subtitle { font-size: 0.75rem; color: #00ffff; text-shadow: 0 0 8px #00ffff; line-height: 1.8; }
 
-        .chat-container { width: 100%; max-width: 1050px; background: rgba(4, 12, 6, 0.92); border: 8px solid #10b981; box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2); outline: 8px solid #4ade80; z-index: 2; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .chat-container { width: 100%; max-width: 1200px; background: rgba(4, 12, 6, 0.92); border: 8px solid #10b981; box-shadow: 0 0 30px #10b981, inset 0 0 20px rgba(57, 255, 20, 0.2); outline: 8px solid #4ade80; z-index: 2; padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         
-        .minnit-chat-sembed { margin: 0 auto; display: block !important; border: 4px solid #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); }
-        .powered-by-minnit { margin-top: 20px; text-align: center; z-index: 2; }
-        .powered-by-minnit a { color: #ffff00; text-shadow: 0 0 5px rgba(255,255,0,0.4); font-size: 0.6rem; text-decoration: none; line-height: 1.6; }
-        .powered-by-minnit a:hover { color: #39ff14; text-shadow: 0 0 5px #39ff14; }
+        .minnit-chat-sembed { width: 100% !important; margin: 0 auto; display: block !important; border: 4px solid #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); }
 
         @media (max-width: 900px) {
             h1 { font-size: 1.6rem; }
-            .chat-container { padding: 20px 10px; }
+            .chat-container { padding: 15px 10px; }
         }
     </style>
 </head>
@@ -75,16 +71,12 @@
     </nav>
 
     <div class="header-section">
-        <h1>COMMUNITY CHAT</h1>
-        <p class="subtitle">Live player communication hub powered by Minnit Engine</p>
+        <h1>Community Chat</h1>
     </div>
 
     <div class="chat-container">
-        <script src="https://minnit.chat/js/embed.js?c=1772345192" defer></script>
-        <span style="display: none;" class="minnit-chat-sembed" data-chatname="https://organizations.minnit.chat/943093458861208/c/Main?embed" data-style="width:100%; height:550px; max-height:80vh;" data-version="1.55">Chat</span>
-        <p class="powered-by-minnit">
-            <a href="https://minnit.chat" target="_blank">Get your own free chatroom with Minnit Chat</a>
-        </p>
+        <script src="https://minnit.chat" defer></script>
+        <span style="display: none;" class="minnit-chat-sembed" data-chatname="https://minnit.chat" data-style="width:100%; height:600px; max-height:85vh;" data-version="1.55">Chat</span>
     </div>
 
 </body>
