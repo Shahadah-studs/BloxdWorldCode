@@ -1,0 +1,478 @@
+{
+  "actors": [
+    {
+      "kind": "player",
+      "id": "ajrncfsl5",
+      "pos": [
+        4.9998578346726426,
+        1,
+        -2.2647134459241878
+      ],
+      "rotY": -46,
+      "scale": 1,
+      "sel": {
+        "skin": "skin_0_17",
+        "eyes": "eyes_0_0",
+        "eyebrows": "eyebrows_1_0",
+        "shoes": "shoes_0_0",
+        "body": "body_0_1",
+        "legs": "legs_0_0",
+        "head": "head_1_0",
+        "back": "back_none"
+      },
+      "anim": "sit",
+      "animTime": 0.44,
+      "particles": "flames",
+      "cape": "super",
+      "hat": "hat_18_5",
+      "nametag": {
+        "name": "Ahmad_YTRE",
+        "colour": "#cc66ff",
+        "badges": [],
+        "subtitle": "Locked"
+      }
+    },
+    {
+      "kind": "player",
+      "id": "adf62g51c",
+      "pos": [
+        3.4725664916711274,
+        1,
+        -0.24693389943759847
+      ],
+      "rotY": 168,
+      "scale": 1,
+      "sel": {
+        "skin": "skin_0_5",
+        "eyes": "eyes_9_0",
+        "eyebrows": "eyebrows_2_1",
+        "shoes": "shoes_none",
+        "body": "body_18_4",
+        "legs": "legs_12_4",
+        "head": "head_9_1",
+        "back": "back_none"
+      },
+      "anim": "point",
+      "animTime": 0.8,
+      "outfit": "vex",
+      "nametag": {
+        "name": "Shahadah_Studios",
+        "colour": "#cc66ff",
+        "badges": [],
+        "subtitle": "Killer"
+      }
+    }
+  ],
+  "ground": {
+    "w": 20,
+    "d": 10,
+    "fill": "grass-block",
+    "cells": {
+      "10,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "11,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "12,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "13,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "14,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "15,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,8": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,7": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,6": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,5": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,4": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,3": {
+        "s": "pine-wood-planks",
+        "h": 6,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,2": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,1": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "16,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "15,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "14,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "12,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "13,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "11,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "9,6": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "10,6": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "10,5": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "11,5": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "12,5": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "12,6": {
+        "s": "grass-block",
+        "h": 1
+      },
+      "10,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "9,0": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "9,9": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "9,8": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "15,1": {
+        "s": "pine-wood-planks",
+        "h": 4,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "14,1": {
+        "s": "pine-wood-planks",
+        "h": 4,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "13,1": {
+        "s": "pine-wood-planks",
+        "h": 4,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "12,1": {
+        "s": "pine-wood-planks",
+        "h": 4,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "11,1": {
+        "s": "pine-wood-planks",
+        "h": 4,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      },
+      "9,1": {
+        "s": "pine-wood-planks",
+        "h": 5,
+        "st": [
+          "grass-block",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks",
+          "pine-wood-planks"
+        ]
+      }
+    }
+  },
+  "sky": {
+    "mode": "game"
+  },
+  "light": {
+    "preset": "night",
+    "azimuth": 144,
+    "elevation": 61,
+    "shadows": true
+  },
+  "pack": "default",
+  "timeline": {
+    "duration": 8,
+    "actors": {},
+    "camera": {
+      "pos": [
+        {
+          "t": 0,
+          "v": [
+            10.609300267588585,
+            3.5406419997715903,
+            -17.49572950497465
+          ]
+        }
+      ],
+      "target": [
+        {
+          "t": 0,
+          "v": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "fov": [
+        {
+          "t": 0,
+          "v": [
+            45
+          ]
+        }
+      ]
+    }
+  }
+}
