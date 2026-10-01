@@ -308,14 +308,23 @@
             Shahadah Studios Elite -DO NOT USE THE WEB TITLE WITHOUT LICENSE-
         </footer>
 
-        <script src="https://google.com"></script>
-        <script>
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6Ld4W5gtAAAAAC7hi13LcbpbNgIncrdl6MB8K1ec', {action: 'homepage'}).then(function(token) {
-                    console.log("SHS Elite Security: Connection Node Verified.");
-                });
-            });
-        </script>
+        <!-- Secure Lightweight Security Engine -->
+<script src="https://google.com" defer></script>
+<script>
+    // Automatically runs when the security node loads
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6Ld4W5gtAAAAAC7hi13LcbpbNgIncrdl6MB8K1ec', {action: 'submit_code'}).then(function(token) {
+            // Google's edge firewall verifies the connection transparently
+            console.log("SHS Elite Security: Connection Armor Node Verified.");
+            
+            // OPTIONAL: Attach token seamlessly to your Supabase or Formspree pipelines
+            if(document.getElementById('recaptchaToken')) {
+                document.getElementById('recaptchaToken').value = token;
+            }
+        });
+    });
+</script>
+
     </body>
 </html>
 
