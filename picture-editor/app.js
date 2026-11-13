@@ -68,7 +68,7 @@ function initTemplate() {
       id: 4,
       type: 'text',
       name: 'Subtitle',
-      text: 'The Ulitmate site for Bloxd!',
+      text: 'The Ultimate site for Bloxd!',
       x: 860,
       y: 410,
       scale: 0.65,
