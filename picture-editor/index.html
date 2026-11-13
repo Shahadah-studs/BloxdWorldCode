@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BloxdWorldCode | Picture maker</title>
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span class="brand-badge">BloxdWorldCode</span>
+      <span>Picture maker</span>
+    </div>
+    <div class="header-actions">
+      <select id="canvasPreset" title="Canvas Size">
+        <option value="1280x720">YouTube / Video (1280×720)</option>
+        <option value="512x512">Bloxd Lobby Icon (512×512)</option>
+        <option value="1920x1080">HD Banner (1920×1080)</option>
+      </select>
+      <button id="exportBtn" class="primary">Download PNG</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="control-group">
+        <div class="section-title">1. Background Scene</div>
+        <input type="file" id="bgUpload" accept="image/*" />
+        <div class="row">
+          <label>Biome Preset</label>
+          <select id="bgPreset">
+            <option value="sky">Bloxd Sky & Plains</option>
+            <option value="bedwars">Void Bedwars</option>
+            <option value="lava">Nether / Parkour Lava</option>
+            <option value="emerald">Emerald Cave</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Blur</label>
+          <input type="range" id="bgBlur" min="0" max="20" value="2" />
+        </div>
+        <div class="row">
+          <label>Vignette</label>
+          <input type="range" id="bgVignette" min="0" max="100" value="35" />
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">2. Bloxd Players & Text</div>
+        <div class="grid-2">
+          <button id="addTextBtn">+ Title Text</button>
+          <button id="addPlayerBtn">+ Bloxd Avatar</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">3. Bloxd.io Tools & Items</div>
+        <div class="grid-2">
+          <button id="addKnightSwordBtn">+ Knight Sword</button>
+          <button id="addSwordBtn">+ Diamond Sword</button>
+          <button id="addMoonPickBtn">+ Moon Pickaxe</button>
+          <button id="addOrbBtn">+ Moonstone Orb</button>
+          <button id="addFireballBtn">+ Fireball</button>
+          <button id="addBedBtn">+ Bedwars Bed</button>
+        </div>
+        <label class="file-label">Or upload custom PNG sticker:</label>
+        <input type="file" id="stickerUpload" accept="image/*" />
+      </div>
+
+      <div class="control-group no-border">
+        <div class="section-title">Quick Tips</div>
+        <p class="hint">Drag any layer on the canvas to position it. Select your Bloxd Avatar to switch poses, add a Super Cape, or customize outfit colors.</p>
+      </div>
+    </div>
+
+    <!-- Center Stage -->
+    <div class="stage">
+      <canvas id="canvas" width="1280" height="720"></canvas>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="sidebar-right">
+      <div class="control-group">
+        <div class="section-title">Layers</div>
+        <div id="layerList" class="layer-list"></div>
+      </div>
+
+      <div id="inspector" class="control-group no-border" style="display:none;">
+        <div class="section-title">Selected Item Properties</div>
+        
+        <div id="textControls" class="sub-controls" style="display:none;">
+          <input type="text" id="propText" placeholder="Enter text..." />
+          <div class="row">
+            <label>Fill Color</label>
+            <input type="color" id="propColor" value="#ffffff" />
+          </div>
+          <div class="row">
+            <label>Outline Color</label>
+            <input type="color" id="propStroke" value="#000000" />
+          </div>
+        </div>
+
+        <div id="avatarControls" class="sub-controls" style="display:none;">
+          <div class="row">
+            <label>Pose</label>
+            <select id="propPose">
+              <option value="hero">Hero Stance</option>
+              <option value="wave">Action / Wave</option>
+              <option value="battle">Battle Ready</option>
+              <option value="run">Parkour Sprint</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Skin Tone</label>
+            <input type="color" id="propSkin" value="#f5cba7" />
+          </div>
+          <div class="row">
+            <label>Hair / Hood</label>
+            <input type="color" id="propHair" value="#1e293b" />
+          </div>
+          <div class="row">
+            <label>Shirt Color</label>
+            <input type="color" id="propShirt" value="#2563eb" />
+          </div>
+          <div class="row">
+            <label>Pants Color</label>
+            <input type="color" id="propPants" value="#1e293b" />
+          </div>
+          <div class="row">
+            <label>Super Cape</label>
+            <input type="checkbox" id="propCape" />
+          </div>
+        </div>
+
+        <div class="row">
+          <label>Scale</label>
+          <input type="range" id="propScale" min="0.2" max="3" step="0.05" value="1" />
+        </div>
+        <div class="row">
+          <label>Rotation</label>
+          <input type="range" id="propRotate" min="-180" max="180" value="0" />
+        </div>
+        <div class="row">
+          <label>Glow / Shadow</label>
+          <input type="color" id="propGlow" value="#000000" />
+        </div>
+
+        <div class="grid-2 action-row">
+          <button id="bringForwardBtn">Bring Front</button>
+          <button id="deleteLayerBtn" class="danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets.js?v=9"></script>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
